@@ -29,11 +29,11 @@
 
         .page {
 
-            max-width: 1200px;
+            max-width: 1100px;
 
             margin: auto;
 
-            padding: 60px 30px 100px;
+            padding: 50px 25px 100px;
 
         }
 
@@ -41,19 +41,11 @@
 
             display: inline-block;
 
-            margin-bottom: 70px;
+            margin-bottom: 60px;
 
             color: #777;
 
             text-decoration: none;
-
-            font-size: 0.95rem;
-
-        }
-
-        .back:hover {
-
-            color: #333;
 
         }
 
@@ -61,7 +53,7 @@
 
             text-align: center;
 
-            margin-bottom: 90px;
+            margin-bottom: 80px;
 
         }
 
@@ -81,8 +73,6 @@
 
             margin: auto;
 
-            font-size: 1.1rem;
-
             line-height: 1.8;
 
             color: #666;
@@ -91,7 +81,7 @@
 
         .invitation {
 
-            margin-bottom: 120px;
+            margin-bottom: 100px;
 
         }
 
@@ -103,43 +93,167 @@
 
             font-weight: normal;
 
-            letter-spacing: 1px;
-
-            margin-bottom: 50px;
+            margin-bottom: 40px;
 
         }
 
-        .photos {
+        .viewer {
 
-            display: grid;
-
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-
-            gap: 40px;
-
-            max-width: 900px;
+            max-width: 700px;
 
             margin: auto;
 
+            position: relative;
+
         }
 
-        .photo {
+        .image-container {
 
             background: white;
 
-            padding: 12px;
+            padding: 15px;
 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
         }
 
-        .photo img {
+        .image-container img {
 
             width: 100%;
 
-            height: auto;
-
             display: block;
+
+            cursor: zoom-in;
+
+        }
+
+        .arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+            font-size: 1.8rem;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+        }
+
+        .arrow:hover {
+
+            background: white;
+
+        }
+
+        .previous {
+
+            left: -22px;
+
+        }
+
+        .next {
+
+            right: -22px;
+
+        }
+
+        .dots {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+        .dot {
+
+            display: inline-block;
+
+            width: 9px;
+
+            height: 9px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            background: #ccc;
+
+            cursor: pointer;
+
+        }
+
+        .dot.active {
+
+            background: #555;
+
+        }
+
+        .lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.9);
+
+            z-index: 1000;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+        .lightbox.open {
+
+            display: flex;
+
+        }
+
+        .lightbox img {
+
+            max-width: 95vw;
+
+            max-height: 90vh;
+
+            object-fit: contain;
+
+        }
+
+        .close {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 30px;
+
+            color: white;
+
+            font-size: 2.5rem;
+
+            cursor: pointer;
 
         }
 
@@ -147,33 +261,27 @@
 
             .page {
 
-                padding: 40px 20px 70px;
+                padding: 35px 20px 70px;
 
             }
 
-            .back {
+            .previous {
 
-                margin-bottom: 50px;
-
-            }
-
-            header {
-
-                margin-bottom: 65px;
+                left: 5px;
 
             }
 
-            .invitation {
+            .next {
 
-                margin-bottom: 80px;
+                right: 5px;
 
             }
 
-            .photos {
+            .arrow {
 
-                grid-template-columns: 1fr;
+                width: 40px;
 
-                gap: 30px;
+                height: 40px;
 
             }
 
@@ -216,6 +324,8 @@
         </header>
 
 
+        <!-- FAIRE-PART VIN D'HONNEUR -->
+
         <section class="invitation">
 
             <h2>
@@ -224,29 +334,39 @@
 
             </h2>
 
-            <div class="photos">
+            <div class="viewer">
 
-                <div class="photo">
+                <button class="arrow previous" onclick="changeImage(0, -1)">
+
+                    ‹
+
+                </button>
+
+                <button class="arrow next" onclick="changeImage(0, 1)">
+
+                    ›
+
+                </button>
+
+                <div class="image-container">
 
                     <img
 
+                        id="image0"
+
                         src="fairepartvinhonneurrecto.jpg"
 
-                        alt="Faire-part du vin d'honneur — recto"
+                        onclick="openLightbox(0)"
 
                     >
 
                 </div>
 
-                <div class="photo">
+                <div class="dots">
 
-                    <img
+                    <span class="dot active" onclick="showImage(0, 0)"></span>
 
-                        src="fairepartvinhonneurverso.jpg"
-
-                        alt="Faire-part du vin d'honneur — verso"
-
-                    >
+                    <span class="dot" onclick="showImage(0, 1)"></span>
 
                 </div>
 
@@ -254,6 +374,8 @@
 
         </section>
 
+
+        <!-- FAIRE-PART REPAS -->
 
         <section class="invitation">
 
@@ -263,29 +385,39 @@
 
             </h2>
 
-            <div class="photos">
+            <div class="viewer">
 
-                <div class="photo">
+                <button class="arrow previous" onclick="changeImage(1, -1)">
+
+                    ‹
+
+                </button>
+
+                <button class="arrow next" onclick="changeImage(1, 1)">
+
+                    ›
+
+                </button>
+
+                <div class="image-container">
 
                     <img
 
+                        id="image1"
+
                         src="fairepartrepasrecto.jpg"
 
-                        alt="Faire-part du repas — recto"
+                        onclick="openLightbox(1)"
 
                     >
 
                 </div>
 
-                <div class="photo">
+                <div class="dots">
 
-                    <img
+                    <span class="dot active" onclick="showImage(1, 0)"></span>
 
-                        src="fairepartrepasverso.jpg"
-
-                        alt="Faire-part du repas — verso"
-
-                    >
+                    <span class="dot" onclick="showImage(1, 1)"></span>
 
                 </div>
 
@@ -295,6 +427,111 @@
 
 
     </main>
+
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+        <span class="close">
+
+            ×
+
+        </span>
+
+        <img id="lightboxImage">
+
+    </div>
+
+
+    <script>
+
+        const images = [
+
+            [
+
+                "fairepartvinhonneurrecto.jpg",
+
+                "fairepartvinhonneurverso.jpg"
+
+            ],
+
+            [
+
+                "fairepartrepasrecto.jpg",
+
+                "fairepartrepasverso.jpg"
+
+            ]
+
+        ];
+
+
+        const currentImages = [0, 0];
+
+
+        function showImage(viewer, image) {
+
+            currentImages[viewer] = image;
+
+            document.getElementById("image" + viewer).src = images[viewer][image];
+
+
+            const dots = document.querySelectorAll(".viewer")[viewer].querySelectorAll(".dot");
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle("active", index === image);
+
+            });
+
+        }
+
+
+        function changeImage(viewer, direction) {
+
+            let nextImage = currentImages[viewer] + direction;
+
+
+            if (nextImage < 0) {
+
+                nextImage = images[viewer].length - 1;
+
+            }
+
+
+            if (nextImage >= images[viewer].length) {
+
+                nextImage = 0;
+
+            }
+
+
+            showImage(viewer, nextImage);
+
+        }
+
+
+        function openLightbox(viewer) {
+
+            const lightbox = document.getElementById("lightbox");
+
+            const lightboxImage = document.getElementById("lightboxImage");
+
+
+            lightboxImage.src = images[viewer][currentImages[viewer]];
+
+
+            lightbox.classList.add("open");
+
+        }
+
+
+        function closeLightbox() {
+
+            document.getElementById("lightbox").classList.remove("open");
+
+        }
+
+    </script>
 
 </body>
 
