@@ -95,17 +95,7 @@
 
         .choice {
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-height: 280px;
-
-            padding: 40px;
-
-            border: 1px solid #ddd;
+            display: block;
 
             background: white;
 
@@ -113,7 +103,11 @@
 
             color: #333;
 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            overflow: hidden;
 
         }
 
@@ -121,15 +115,53 @@
 
             transform: translateY(-5px);
 
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+        }
+
+        .choice img {
+
+            width: 100%;
+
+            aspect-ratio: 4 / 3;
+
+            object-fit: cover;
+
+            display: block;
 
         }
 
         .choice h2 {
 
+            text-align: center;
+
             font-size: 2rem;
 
             font-weight: normal;
+
+            padding: 25px;
+
+        }
+
+        .coming-soon {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            aspect-ratio: 4 / 3;
+
+            background: #eeeae4;
+
+            color: #777;
+
+            font-size: 1.2rem;
+
+            text-align: center;
+
+            padding: 30px;
 
         }
 
@@ -145,13 +177,7 @@
 
                 grid-template-columns: 1fr;
 
-                gap: 25px;
-
-            }
-
-            .choice {
-
-                min-height: 200px;
+                gap: 30px;
 
             }
 
@@ -165,7 +191,7 @@
 
     <main class="page">
 
-        <a href="index.html" class="back">
+        <a href="../index.html" class="back">
 
             ← Retour au menu
 
@@ -191,7 +217,15 @@
 
         <section class="choices">
 
-            <a href="preparatifs-elodie.html" class="choice">
+            <a href="elodie/" class="choice">
+
+                <img
+
+                    src="../images/preparatifs-elodie/Préparatifs - Elodie & Alexandre-10.jpg"
+
+                    alt="Les préparatifs d'Élodie"
+
+                >
 
                 <h2>
 
@@ -201,7 +235,17 @@
 
             </a>
 
-            <a href="preparatifs-alexandre.html" class="choice">
+            <div class="choice">
+
+                <div class="coming-soon">
+
+                    Les préparatifs d'Alexandre
+
+                    <br><br>
+
+                    À venir
+
+                </div>
 
                 <h2>
 
@@ -209,7 +253,7 @@
 
                 </h2>
 
-            </a>
+            </div>
 
         </section>
 
