@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Les préparatifs d'Élodie — Élodie & Alexandre</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #f8f6f2;
+            color: #333;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 25px 100px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 60px;
+            color: #777;
+            text-decoration: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .intro {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 900px) {
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 35px 15px 70px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="page">
+
+        <a href="../" class="back">
+            ← Retour aux préparatifs
+        </a>
+
+        <header>
+
+            <h1>
+                Les préparatifs d'Élodie
+            </h1>
+
+            <p class="intro">
+
+                Les heures qui ont précédé notre rencontre,
+                entourée de celles et ceux qui comptent.
+
+            </p>
+
+        </header>
+
+        <section class="gallery">
+
+            <img
+                src="../../images/preparatifs-elodie/Pre%CC%81paratifs%20-%20Elodie%20%26%20Alexandre-1.jpg"
+                alt="Préparatifs d'Élodie"
+            >
+
+            <img
+                src="../../images/preparatifs-elodie/Pre%CC%81paratifs%20-%20Elodie%20%26%20Alexandre-2.jpg"
+                alt="Préparatifs d'Élodie"
+            >
+
+            <img
+                src="../../images/preparatifs-elodie/Pre%CC%81paratifs%20-%20Elodie%20%26%20Alexandre-3.jpg"
+                alt="Préparatifs d'Élodie"
+            >
+
+            <img
+                src="../../images/preparatifs-elodie/Pre%CC%81paratifs%20-%20Elodie%20%26%20Alexandre-4.jpg"
+                alt="Préparatifs d'Élodie"
+            >
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
