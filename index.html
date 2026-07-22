@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Alexandre & Élodie — 23 mai 2026</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #f8f6f2;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .content {
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .date {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 32px;
+            border: 1px solid #333;
+            color: #333;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #333;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .date {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="hero">
+        <div class="content">
+
+            <h1>Alexandre & Élodie</h1>
+
+            <p class="date">
+                23 MAI 2026
+            </p>
+
+            <p class="intro">
+                Bienvenue dans les souvenirs de notre mariage.
+                <br>
+                Une journée, une histoire, une vie à deux.
+            </p>
+
+            <a href="#" class="button">
+                Découvrir nos souvenirs
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>
