@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Les préparatifs — Élodie & Alexandre</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Georgia, serif;
+
+            background: #f8f6f2;
+
+            color: #333;
+
+        }
+
+        .page {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 50px 25px 100px;
+
+        }
+
+        .back {
+
+            display: inline-block;
+
+            margin-bottom: 60px;
+
+            color: #777;
+
+            text-decoration: none;
+
+        }
+
+        header {
+
+            text-align: center;
+
+            margin-bottom: 80px;
+
+        }
+
+        h1 {
+
+            font-size: clamp(2.8rem, 7vw, 5rem);
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+
+        }
+
+        .intro {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            color: #666;
+
+        }
+
+        .choices {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 40px;
+
+            max-width: 850px;
+
+            margin: auto;
+
+        }
+
+        .choice {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 280px;
+
+            padding: 40px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            text-decoration: none;
+
+            color: #333;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        .choice:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .choice h2 {
+
+            font-size: 2rem;
+
+            font-weight: normal;
+
+        }
+
+        @media (max-width: 700px) {
+
+            .page {
+
+                padding: 35px 20px 70px;
+
+            }
+
+            .choices {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+            }
+
+            .choice {
+
+                min-height: 200px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="page">
+
+        <a href="index.html" class="back">
+
+            ← Retour au menu
+
+        </a>
+
+        <header>
+
+            <h1>
+
+                Les préparatifs
+
+            </h1>
+
+            <p class="intro">
+
+                Avant de nous retrouver, chacun de notre côté,
+
+                nous nous sommes préparés entourés de nos proches.
+
+            </p>
+
+        </header>
+
+        <section class="choices">
+
+            <a href="preparatifs-elodie.html" class="choice">
+
+                <h2>
+
+                    Élodie
+
+                </h2>
+
+            </a>
+
+            <a href="preparatifs-alexandre.html" class="choice">
+
+                <h2>
+
+                    Alexandre
+
+                </h2>
+
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
