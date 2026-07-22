@@ -1,179 +1,185 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Les préparatifs — Élodie & Alexandre</title>
+```
+<title>Les préparatifs — Élodie & Alexandre</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        body {
-            font-family: Georgia, serif;
-            background: #f8f6f2;
-            color: #333;
-        }
+    body {
+        font-family: Georgia, serif;
+        background: #f8f6f2;
+        color: #333;
+    }
+
+    .page {
+        max-width: 1000px;
+        margin: auto;
+        padding: 50px 25px 100px;
+    }
+
+    .back {
+        display: inline-block;
+        margin-bottom: 60px;
+        color: #777;
+        text-decoration: none;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    h1 {
+        font-size: clamp(2.8rem, 7vw, 5rem);
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    .intro {
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.8;
+        color: #666;
+    }
+
+    .choices {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .choice {
+        display: block;
+        background: white;
+        text-decoration: none;
+        color: #333;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .choice:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .choice img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+    }
+
+    .choice h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: normal;
+        padding: 25px;
+    }
+
+    .coming-soon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 4 / 3;
+        background: #eeeae4;
+        color: #777;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 30px;
+    }
+
+    @media (max-width: 700px) {
 
         .page {
-            max-width: 1000px;
-            margin: auto;
-            padding: 50px 25px 100px;
-        }
-
-        .back {
-            display: inline-block;
-            margin-bottom: 60px;
-            color: #777;
-            text-decoration: none;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            font-weight: normal;
-            margin-bottom: 30px;
-        }
-
-        .intro {
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.8;
-            color: #666;
+            padding: 35px 20px 70px;
         }
 
         .choices {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 850px;
-            margin: auto;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
-        .choice {
-            display: block;
-            background: white;
-            text-decoration: none;
-            color: #333;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
+    }
 
-        .choice:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
+</style>
+```
 
-        .choice img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            display: block;
-        }
-
-        .choice h2 {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: normal;
-            padding: 25px;
-        }
-
-        .coming-soon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 4 / 3;
-            background: #eeeae4;
-            color: #777;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 30px;
-        }
-
-        @media (max-width: 700px) {
-
-            .page {
-                padding: 35px 20px 70px;
-            }
-
-            .choices {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-        }
-
-    </style>
 </head>
 
 <body>
 
-    <main class="page">
+```
+<main class="page">
 
-        <a href="../index.html" class="back">
-            ← Retour au menu
+    <a href="../index.html" class="back">
+        ← Retour au menu
+    </a>
+
+    <header>
+
+        <h1>
+            Les préparatifs
+        </h1>
+
+        <p class="intro">
+            Avant de nous retrouver, chacun de notre côté,
+            nous nous sommes préparés entourés de nos proches.
+        </p>
+
+    </header>
+
+    <section class="choices">
+
+        <a href="elodie/" class="choice">
+
+            <img
+                src="../images/preparatifs-elodie/Préparatifs - Elodie & Alexandre-10.jpg"
+                alt="Les préparatifs d'Élodie"
+            >
+
+            <h2>
+                Élodie
+            </h2>
+
         </a>
 
-        <header>
+        <div class="choice">
 
-            <h1>
-                Les préparatifs
-            </h1>
+            <div class="coming-soon">
 
-            <p class="intro">
-                Avant de nous retrouver, chacun de notre côté,
-                nous nous sommes préparés entourés de nos proches.
-            </p>
+                Les préparatifs d'Alexandre
 
-        </header>
+                <br><br>
 
-        <section class="choices">
-
-            <a href="elodie/" class="choice">
-
-                <img
-                    src="../images/preparatifs-elodie/Pre%CC%81paratifs%20-%20Elodie%20%26%20Alexandre-10.jpg"
-                    alt="Les préparatifs d'Élodie"
-                >
-
-                <h2>
-                    Élodie
-                </h2>
-
-            </a>
-
-            <div class="choice">
-
-                <div class="coming-soon">
-
-                    Les préparatifs d'Alexandre
-
-                    <br><br>
-
-                    À venir
-
-                </div>
-
-                <h2>
-                    Alexandre
-                </h2>
+                À venir
 
             </div>
 
-        </section>
+            <h2>
+                Alexandre
+            </h2>
 
-    </main>
+        </div>
+
+    </section>
+
+</main>
+```
 
 </body>
 
