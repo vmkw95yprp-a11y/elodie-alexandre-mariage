@@ -227,14 +227,41 @@
 
 <script>
 
+    const photoNumbers = [];
+
+    for (let i = 86; i <= 197; i++) {
+        photoNumbers.push(i);
+    }
+
+
     const gallery = document.getElementById("gallery");
 
-    const photos = [];
+    const photos = photoNumbers.map(number => {
 
+        const fileName =
+            "Pre%CC%81paratifs%20%20-%20Elodie%20%26%20Alexandre-" +
+            number +
+            ".jpg";
 
-    /*
-    LES PHOTOS D'ALEXANDRE SERONT AJOUTÉES ICI
-    */
+        const path =
+            "../../images/preparatifs-alexandre/" +
+            fileName;
+
+        const image = document.createElement("img");
+
+        image.src = path;
+
+        image.alt = "Préparatifs d'Alexandre";
+
+        image.onclick = function() {
+            openLightbox(photoNumbers.indexOf(number));
+        };
+
+        gallery.appendChild(image);
+
+        return path;
+
+    });
 
 
     let currentImage = 0;
@@ -267,10 +294,6 @@
 
 
     function changeImage(direction) {
-
-        if (photos.length === 0) {
-            return;
-        }
 
         currentImage += direction;
 
