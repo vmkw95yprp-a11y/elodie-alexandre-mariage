@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>L'invitation — Élodie & Alexandre</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Georgia, serif;
+
+            background: #f8f6f2;
+
+            color: #333;
+
+        }
+
+        .page {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 50px 25px 100px;
+
+        }
+
+        .back {
+
+            display: inline-block;
+
+            margin-bottom: 60px;
+
+            color: #777;
+
+            text-decoration: none;
+
+        }
+
+        header {
+
+            text-align: center;
+
+            margin-bottom: 80px;
+
+        }
+
+        h1 {
+
+            font-size: clamp(2.8rem, 7vw, 5rem);
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+
+        }
+
+        .intro {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            color: #666;
+
+        }
+
+        .invitation {
+
+            margin-bottom: 100px;
+
+        }
+
+        h2 {
+
+            text-align: center;
+
+            font-size: 1.8rem;
+
+            font-weight: normal;
+
+            margin-bottom: 40px;
+
+        }
+
+        .viewer {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            position: relative;
+
+        }
+
+        .image-container {
+
+            background: white;
+
+            padding: 15px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .image-container img {
+
+            width: 100%;
+
+            display: block;
+
+            cursor: zoom-in;
+
+        }
+
+        .arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+            font-size: 1.8rem;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+        }
+
+        .previous {
+
+            left: -22px;
+
+        }
+
+        .next {
+
+            right: -22px;
+
+        }
+
+        .dots {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+        .dot {
+
+            display: inline-block;
+
+            width: 9px;
+
+            height: 9px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            background: #ccc;
+
+            cursor: pointer;
+
+        }
+
+        .dot.active {
+
+            background: #555;
+
+        }
+
+        .lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.94);
+
+            z-index: 1000;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+        .lightbox.open {
+
+            display: flex;
+
+        }
+
+        .lightbox img {
+
+            max-width: 85vw;
+
+            max-height: 88vh;
+
+            object-fit: contain;
+
+        }
+
+        .close {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 30px;
+
+            color: white;
+
+            font-size: 2.5rem;
+
+            cursor: pointer;
+
+            z-index: 1003;
+
+        }
+
+        .lightbox-arrow {
+
+            position: fixed;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 55px;
+
+            height: 55px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            font-size: 2rem;
+
+            cursor: pointer;
+
+            z-index: 1002;
+
+        }
+
+        .lightbox-previous {
+
+            left: 30px;
+
+        }
+
+        .lightbox-next {
+
+            right: 30px;
+
+        }
+
+        .lightbox-dots {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 0;
+
+            right: 0;
+
+            text-align: center;
+
+        }
+
+        .lightbox-dot {
+
+            display: inline-block;
+
+            width: 10px;
+
+            height: 10px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            background: #888;
+
+            cursor: pointer;
+
+        }
+
+        .lightbox-dot.active {
+
+            background: white;
+
+        }
+
+        @media (max-width: 700px) {
+
+            .page {
+
+                padding: 35px 20px 70px;
+
+            }
+
+            .previous {
+
+                left: 5px;
+
+            }
+
+            .next {
+
+                right: 5px;
+
+            }
+
+            .arrow {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+            .lightbox {
+
+                padding: 15px;
+
+            }
+
+            .lightbox img {
+
+                max-width: 95vw;
+
+                max-height: 82vh;
+
+            }
+
+            .lightbox-previous {
+
+                left: 10px;
+
+            }
+
+            .lightbox-next {
+
+                right: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="page">
+
+        <a href="index.html" class="back">
+
+            ← Retour au menu
+
+        </a>
+
+        <header>
+
+            <h1>
+
+                L'invitation
+
+            </h1>
+
+            <p class="intro">
+
+                Tout a commencé par une invitation.
+
+                <br><br>
+
+                Retrouvez ici les faire-part qui annonçaient cette journée si particulière.
+
+            </p>
+
+        </header>
+
+        <section class="invitation">
+
+            <h2>
+
+                Faire-part — Vin d'honneur
+
+            </h2>
+
+            <div class="viewer">
+
+                <button class="arrow previous" onclick="changeImage(0, -1)">
+
+                    ‹
+
+                </button>
+
+                <button class="arrow next" onclick="changeImage(0, 1)">
+
+                    ›
+
+                </button>
+
+                <div class="image-container">
+
+                    <img
+
+                        id="image0"
+
+                        src="images/faireparts/fairepartvinhonneurrecto.jpg"
+
+                        onclick="openLightbox(0)"
+
+                    >
+
+                </div>
+
+                <div class="dots">
+
+                    <span class="dot active" onclick="showImage(0, 0)"></span>
+
+                    <span class="dot" onclick="showImage(0, 1)"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="invitation">
+
+            <h2>
+
+                Faire-part — Repas
+
+            </h2>
+
+            <div class="viewer">
+
+                <button class="arrow previous" onclick="changeImage(1, -1)">
+
+                    ‹
+
+                </button>
+
+                <button class="arrow next" onclick="changeImage(1, 1)">
+
+                    ›
+
+                </button>
+
+                <div class="image-container">
+
+                    <img
+
+                        id="image1"
+
+                        src="images/faireparts/fairepartrepasrecto.jpg"
+
+                        onclick="openLightbox(1)"
+
+                    >
+
+                </div>
+
+                <div class="dots">
+
+                    <span class="dot active" onclick="showImage(1, 0)"></span>
+
+                    <span class="dot" onclick="showImage(1, 1)"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox">
+
+        <span class="close" onclick="closeLightbox()">
+
+            ×
+
+        </span>
+
+        <button
+
+            class="lightbox-arrow lightbox-previous"
+
+            onclick="changeLightboxImage(-1)"
+
+        >
+
+            ‹
+
+        </button>
+
+        <img id="lightboxImage">
+
+        <button
+
+            class="lightbox-arrow lightbox-next"
+
+            onclick="changeLightboxImage(1)"
+
+        >
+
+            ›
+
+        </button>
+
+        <div class="lightbox-dots">
+
+            <span
+
+                class="lightbox-dot active"
+
+                onclick="showLightboxImage(0)"
+
+            ></span>
+
+            <span
+
+                class="lightbox-dot"
+
+                onclick="showLightboxImage(1)"
+
+            ></span>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const images = [
+
+            [
+
+                "images/faireparts/fairepartvinhonneurrecto.jpg",
+
+                "images/faireparts/fairepartvinhonneurverso.jpg"
+
+            ],
+
+            [
+
+                "images/faireparts/fairepartrepasrecto.jpg",
+
+                "images/faireparts/fairepartrepasverso.jpg"
+
+            ]
+
+        ];
+
+        const currentImages = [0, 0];
+
+        let currentViewer = 0;
+
+        function showImage(viewer, image) {
+
+            currentImages[viewer] = image;
+
+            document.getElementById("image" + viewer).src = images[viewer][image];
+
+            const dots = document
+
+                .querySelectorAll(".viewer")[viewer]
+
+                .querySelectorAll(".dot");
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle("active", index === image);
+
+            });
+
+        }
+
+        function changeImage(viewer, direction) {
+
+            let nextImage = currentImages[viewer] + direction;
+
+            if (nextImage < 0) {
+
+                nextImage = images[viewer].length - 1;
+
+            }
+
+            if (nextImage >= images[viewer].length) {
+
+                nextImage = 0;
+
+            }
+
+            showImage(viewer, nextImage);
+
+        }
+
+        function openLightbox(viewer) {
+
+            currentViewer = viewer;
+
+            document
+
+                .getElementById("lightbox")
+
+                .classList
+
+                .add("open");
+
+            showLightboxImage(currentImages[viewer]);
+
+        }
+
+        function showLightboxImage(image) {
+
+            currentImages[currentViewer] = image;
+
+            document
+
+                .getElementById("lightboxImage")
+
+                .src = images[currentViewer][image];
+
+            const dots = document
+
+                .querySelectorAll(".lightbox-dot");
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle("active", index === image);
+
+            });
+
+        }
+
+        function changeLightboxImage(direction) {
+
+            let nextImage = currentImages[currentViewer] + direction;
+
+            if (nextImage < 0) {
+
+                nextImage = images[currentViewer].length - 1;
+
+            }
+
+            if (nextImage >= images[currentViewer].length) {
+
+                nextImage = 0;
+
+            }
+
+            showLightboxImage(nextImage);
+
+            showImage(currentViewer, nextImage);
+
+        }
+
+        function closeLightbox() {
+
+            document
+
+                .getElementById("lightbox")
+
+                .classList
+
+                .remove("open");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
