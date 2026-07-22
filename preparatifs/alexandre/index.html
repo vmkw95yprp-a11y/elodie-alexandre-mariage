@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les préparatifs d'Alexandre — Élodie & Alexandre</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Georgia, serif;
+        background: #f8f6f2;
+        color: #333;
+    }
+
+    .page {
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px 25px 100px;
+    }
+
+    .back {
+        display: inline-block;
+        margin-bottom: 60px;
+        color: #777;
+        text-decoration: none;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: normal;
+        margin-bottom: 25px;
+    }
+
+    .intro {
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.8;
+        color: #666;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    .gallery img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.03);
+    }
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .lightbox.open {
+        display: flex;
+    }
+
+    .lightbox img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+    }
+
+    .close {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 2.5rem;
+        cursor: pointer;
+        z-index: 1002;
+    }
+
+    .lightbox-arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .previous {
+        left: 30px;
+    }
+
+    .next {
+        right: 30px;
+    }
+
+    @media (max-width: 900px) {
+
+        .gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .page {
+            padding: 35px 15px 70px;
+        }
+
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .lightbox {
+            padding: 15px;
+        }
+
+        .lightbox img {
+            max-width: 95vw;
+            max-height: 82vh;
+        }
+
+        .previous {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<main class="page">
+
+    <a href="../" class="back">
+        ← Retour aux préparatifs
+    </a>
+
+    <header>
+
+        <h1>
+            Les préparatifs d'Alexandre
+        </h1>
+
+        <p class="intro">
+
+            Les heures qui ont précédé notre rencontre,
+            entouré de celles et ceux qui comptent.
+
+        </p>
+
+    </header>
+
+    <section class="gallery" id="gallery"></section>
+
+</main>
+
+
+<div class="lightbox" id="lightbox">
+
+    <span class="close" onclick="closeLightbox()">
+        ×
+    </span>
+
+    <button
+        class="lightbox-arrow previous"
+        onclick="changeImage(-1)"
+    >
+        ‹
+    </button>
+
+    <img id="lightboxImage">
+
+    <button
+        class="lightbox-arrow next"
+        onclick="changeImage(1)"
+    >
+        ›
+    </button>
+
+</div>
+
+
+<script>
+
+    const gallery = document.getElementById("gallery");
+
+    const photos = [];
+
+
+    /*
+    LES PHOTOS D'ALEXANDRE SERONT AJOUTÉES ICI
+    */
+
+
+    let currentImage = 0;
+
+
+    function openLightbox(index) {
+
+        currentImage = index;
+
+        document
+            .getElementById("lightbox")
+            .classList
+            .add("open");
+
+        document
+            .getElementById("lightboxImage")
+            .src = photos[currentImage];
+
+    }
+
+
+    function closeLightbox() {
+
+        document
+            .getElementById("lightbox")
+            .classList
+            .remove("open");
+
+    }
+
+
+    function changeImage(direction) {
+
+        if (photos.length === 0) {
+            return;
+        }
+
+        currentImage += direction;
+
+        if (currentImage < 0) {
+            currentImage = photos.length - 1;
+        }
+
+        if (currentImage >= photos.length) {
+            currentImage = 0;
+        }
+
+        document
+            .getElementById("lightboxImage")
+            .src = photos[currentImage];
+
+    }
+
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+            closeLightbox();
+        }
+
+        if (event.key === "ArrowLeft") {
+            changeImage(-1);
+        }
+
+        if (event.key === "ArrowRight") {
+            changeImage(1);
+        }
+
+    });
+
+</script>
+```
+
+</body>
+
+</html>
