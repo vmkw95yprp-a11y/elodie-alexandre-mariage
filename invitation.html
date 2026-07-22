@@ -155,12 +155,6 @@
 
         }
 
-        .arrow:hover {
-
-            background: white;
-
-        }
-
         .previous {
 
             left: -22px;
@@ -205,6 +199,9 @@
 
         }
 
+
+        /* VUE AGRANDIE */
+
         .lightbox {
 
             display: none;
@@ -213,7 +210,7 @@
 
             inset: 0;
 
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.94);
 
             z-index: 1000;
 
@@ -233,9 +230,9 @@
 
         .lightbox img {
 
-            max-width: 95vw;
+            max-width: 85vw;
 
-            max-height: 90vh;
+            max-height: 88vh;
 
             object-fit: contain;
 
@@ -255,7 +252,86 @@
 
             cursor: pointer;
 
+            z-index: 1003;
+
         }
+
+        .lightbox-arrow {
+
+            position: fixed;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 55px;
+
+            height: 55px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            font-size: 2rem;
+
+            cursor: pointer;
+
+            z-index: 1002;
+
+        }
+
+        .lightbox-previous {
+
+            left: 30px;
+
+        }
+
+        .lightbox-next {
+
+            right: 30px;
+
+        }
+
+        .lightbox-dots {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 0;
+
+            right: 0;
+
+            text-align: center;
+
+        }
+
+        .lightbox-dot {
+
+            display: inline-block;
+
+            width: 10px;
+
+            height: 10px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            background: #888;
+
+            cursor: pointer;
+
+        }
+
+        .lightbox-dot.active {
+
+            background: white;
+
+        }
+
 
         @media (max-width: 700px) {
 
@@ -282,6 +358,32 @@
                 width: 40px;
 
                 height: 40px;
+
+            }
+
+            .lightbox {
+
+                padding: 15px;
+
+            }
+
+            .lightbox img {
+
+                max-width: 95vw;
+
+                max-height: 82vh;
+
+            }
+
+            .lightbox-previous {
+
+                left: 10px;
+
+            }
+
+            .lightbox-next {
+
+                right: 10px;
 
             }
 
@@ -429,20 +531,71 @@
     </main>
 
 
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <!-- VUE AGRANDIE -->
 
-        <span class="close">
+    <div class="lightbox" id="lightbox">
+
+        <span class="close" onclick="closeLightbox()">
 
             ×
 
         </span>
 
+
+        <button
+
+            class="lightbox-arrow lightbox-previous"
+
+            onclick="changeLightboxImage(-1)"
+
+        >
+
+            ‹
+
+        </button>
+
+
         <img id="lightboxImage">
+
+
+        <button
+
+            class="lightbox-arrow lightbox-next"
+
+            onclick="changeLightboxImage(1)"
+
+        >
+
+            ›
+
+        </button>
+
+
+        <div class="lightbox-dots">
+
+            <span
+
+                class="lightbox-dot active"
+
+                onclick="showLightboxImage(0)"
+
+            ></span>
+
+            <span
+
+                class="lightbox-dot"
+
+                onclick="showLightboxImage(1)"
+
+            ></span>
+
+        </div>
 
     </div>
 
 
     <script>
+
 
         const images = [
 
@@ -468,6 +621,9 @@
         const currentImages = [0, 0];
 
 
+        let currentViewer = 0;
+
+
         function showImage(viewer, image) {
 
             currentImages[viewer] = image;
@@ -475,7 +631,12 @@
             document.getElementById("image" + viewer).src = images[viewer][image];
 
 
-            const dots = document.querySelectorAll(".viewer")[viewer].querySelectorAll(".dot");
+            const dots = document
+
+                .querySelectorAll(".viewer")[viewer]
+
+                .querySelectorAll(".dot");
+
 
             dots.forEach((dot, index) => {
 
@@ -512,24 +673,88 @@
 
         function openLightbox(viewer) {
 
-            const lightbox = document.getElementById("lightbox");
-
-            const lightboxImage = document.getElementById("lightboxImage");
+            currentViewer = viewer;
 
 
-            lightboxImage.src = images[viewer][currentImages[viewer]];
+            document
+
+                .getElementById("lightbox")
+
+                .classList
+
+                .add("open");
 
 
-            lightbox.classList.add("open");
+            showLightboxImage(currentImages[viewer]);
+
+        }
+
+
+        function showLightboxImage(image) {
+
+            currentImages[currentViewer] = image;
+
+
+            document
+
+                .getElementById("lightboxImage")
+
+                .src = images[currentViewer][image];
+
+
+            const dots = document
+
+                .querySelectorAll(".lightbox-dot");
+
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle("active", index === image);
+
+            });
+
+        }
+
+
+        function changeLightboxImage(direction) {
+
+            let nextImage = currentImages[currentViewer] + direction;
+
+
+            if (nextImage < 0) {
+
+                nextImage = images[currentViewer].length - 1;
+
+            }
+
+
+            if (nextImage >= images[currentViewer].length) {
+
+                nextImage = 0;
+
+            }
+
+
+            showLightboxImage(nextImage);
+
+
+            showImage(currentViewer, nextImage);
 
         }
 
 
         function closeLightbox() {
 
-            document.getElementById("lightbox").classList.remove("open");
+            document
+
+                .getElementById("lightbox")
+
+                .classList
+
+                .remove("open");
 
         }
+
 
     </script>
 
