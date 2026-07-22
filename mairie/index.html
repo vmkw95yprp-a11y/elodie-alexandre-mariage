@@ -56,6 +56,22 @@
         color: #666;
     }
 
+    .spotify-button {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 14px 24px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .spotify-button:hover {
+        transform: translateY(-3px);
+        opacity: 0.85;
+    }
+
     .gallery {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -193,6 +209,14 @@
 
         </p>
 
+        <a
+            href="https://open.spotify.com/playlist/4hleM0JYntVBHceNsORsHJ"
+            class="spotify-button"
+            target="_blank"
+        >
+            🎵 Écouter la playlist de la mairie
+        </a>
+
     </header>
 
     <section class="gallery" id="gallery"></section>
@@ -230,7 +254,9 @@
     const photoNumbers = [];
 
     for (let i = 1; i <= 112; i++) {
+
         photoNumbers.push(i);
+
     }
 
 
@@ -254,7 +280,9 @@
         image.alt = "Le mariage civil d'Élodie et Alexandre";
 
         image.onclick = function() {
+
             openLightbox(photoNumbers.indexOf(number));
+
         };
 
         gallery.appendChild(image);
@@ -298,11 +326,15 @@
         currentImage += direction;
 
         if (currentImage < 0) {
+
             currentImage = photos.length - 1;
+
         }
 
         if (currentImage >= photos.length) {
+
             currentImage = 0;
+
         }
 
         document
@@ -315,15 +347,21 @@
     document.addEventListener("keydown", function(event) {
 
         if (event.key === "Escape") {
+
             closeLightbox();
+
         }
 
         if (event.key === "ArrowLeft") {
+
             changeImage(-1);
+
         }
 
         if (event.key === "ArrowRight") {
+
             changeImage(1);
+
         }
 
     });
@@ -334,4 +372,3 @@
 </body>
 
 </html>
-
