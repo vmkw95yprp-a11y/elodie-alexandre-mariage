@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Élodie & Alexandre— 23 mai 2026</title>
+    <title>Élodie & Alexandre — 23 mai 2026</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,8 +19,45 @@
             font-family: Georgia, serif;
             background: #f8f6f2;
             color: #333;
-            min-height: 100vh;
         }
+
+        /* MENU */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(248, 246, 242, 0.95);
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* ACCUEIL */
 
         .hero {
             min-height: 100vh;
@@ -26,7 +65,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 30px;
+            padding: 100px 30px 30px;
         }
 
         .content {
@@ -48,59 +87,206 @@
         .intro {
             font-size: 1.2rem;
             line-height: 1.8;
-            margin-bottom: 50px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 16px 32px;
-            border: 1px solid #333;
-            color: #333;
-            text-decoration: none;
-            transition: 0.3s;
+        /* SECTIONS */
+
+        section {
+            min-height: 60vh;
+            padding: 100px 30px;
+            text-align: center;
         }
 
-        .button:hover {
-            background: #333;
-            color: white;
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 25px;
         }
 
-        @media (max-width: 600px) {
-            .date {
+        section p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
                 font-size: 0.9rem;
-                letter-spacing: 2px;
             }
 
-            .intro {
-                font-size: 1rem;
+            .hero {
+                padding-top: 170px;
             }
+
         }
+
     </style>
 </head>
 
 <body>
 
-    <main class="hero">
-        <div class="content">
+    <!-- MENU -->
 
-            <h1>Élodie & Alexandre</h1>
+    <header>
 
-            <p class="date">
-                23 MAI 2026
+        <nav>
+
+            <div class="logo">
+                Élodie & Alexandre
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#accueil">Accueil</a>
+                </li>
+
+                <li>
+                    <a href="#invitation">Invitation</a>
+                </li>
+
+                <li>
+                    <a href="#ceremonie">Cérémonie</a>
+                </li>
+
+                <li>
+                    <a href="#photos">Photos</a>
+                </li>
+
+                <li>
+                    <a href="#videos">Vidéos</a>
+                </li>
+
+                <li>
+                    <a href="#remerciements">Merci</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ACCUEIL -->
+
+    <main id="accueil">
+
+        <section class="hero">
+
+            <div class="content">
+
+                <h1>
+                    Élodie & Alexandre
+                </h1>
+
+                <p class="date">
+                    23 MAI 2026
+                </p>
+
+                <p class="intro">
+                    Bienvenue dans les souvenirs de notre mariage.
+                    <br><br>
+                    Une journée, une histoire, une vie à deux.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INVITATION -->
+
+        <section id="invitation">
+
+            <h2>
+                L'invitation
+            </h2>
+
+            <p>
+                Tout a commencé par une invitation...
+                <br><br>
+                Retrouvez ici le faire-part qui annonçait cette belle journée.
             </p>
 
-            <p class="intro">
-                Bienvenue dans les souvenirs de notre mariage.
-                <br>
-                Une journée, une histoire, une vie à deux.
+        </section>
+
+
+        <!-- CEREMONIE -->
+
+        <section id="ceremonie">
+
+            <h2>
+                La cérémonie
+            </h2>
+
+            <p>
+                Retrouvez ici le livret de messe et les souvenirs de notre cérémonie.
             </p>
 
-            <a href="#" class="button">
-                Découvrir nos souvenirs
-            </a>
+        </section>
 
-        </div>
+
+        <!-- PHOTOS -->
+
+        <section id="photos">
+
+            <h2>
+                Les photos
+            </h2>
+
+            <p>
+                Retrouvez ici les photos de cette journée inoubliable.
+            </p>
+
+        </section>
+
+
+        <!-- VIDEOS -->
+
+        <section id="videos">
+
+            <h2>
+                Les vidéos
+            </h2>
+
+            <p>
+                Revivez notre mariage en images.
+            </p>
+
+        </section>
+
+
+        <!-- REMERCIEMENTS -->
+
+        <section id="remerciements">
+
+            <h2>
+                Merci
+            </h2>
+
+            <p>
+                Merci à toutes les personnes qui ont partagé cette journée avec nous.
+            </p>
+
+        </section>
+
     </main>
 
 </body>
+
 </html>
