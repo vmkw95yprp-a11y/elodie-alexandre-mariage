@@ -201,6 +201,9 @@
 
     }
 
+
+    /* VUE AGRANDIE */
+
     .lightbox {
 
         display: none;
@@ -331,6 +334,7 @@
 
     }
 
+
     @media (max-width: 700px) {
 
         .page {
@@ -397,11 +401,13 @@
 ```
 <main class="page">
 
+
     <a href="../index.html" class="back">
 
         ← Retour au menu
 
     </a>
+
 
     <header>
 
@@ -422,6 +428,9 @@
         </p>
 
     </header>
+
+
+    <!-- FAIRE-PART VIN D'HONNEUR -->
 
     <section class="invitation">
 
@@ -471,6 +480,9 @@
 
     </section>
 
+
+    <!-- FAIRE-PART REPAS -->
+
     <section class="invitation">
 
         <h2>
@@ -519,7 +531,11 @@
 
     </section>
 
+
 </main>
+
+
+<!-- VUE AGRANDIE -->
 
 <div class="lightbox" id="lightbox">
 
@@ -528,6 +544,7 @@
         ×
 
     </span>
+
 
     <button
 
@@ -541,7 +558,9 @@
 
     </button>
 
+
     <img id="lightboxImage">
+
 
     <button
 
@@ -554,6 +573,7 @@
         ›
 
     </button>
+
 
     <div class="lightbox-dots">
 
@@ -577,7 +597,9 @@
 
 </div>
 
+
 <script>
+
 
     const images = [
 
@@ -599,9 +621,12 @@
 
     ];
 
+
     const currentImages = [0, 0];
 
+
     let currentViewer = 0;
+
 
     function showImage(viewer, image) {
 
@@ -609,11 +634,13 @@
 
         document.getElementById("image" + viewer).src = images[viewer][image];
 
+
         const dots = document
 
             .querySelectorAll(".viewer")[viewer]
 
             .querySelectorAll(".dot");
+
 
         dots.forEach((dot, index) => {
 
@@ -623,9 +650,11 @@
 
     }
 
+
     function changeImage(viewer, direction) {
 
         let nextImage = currentImages[viewer] + direction;
+
 
         if (nextImage < 0) {
 
@@ -633,19 +662,23 @@
 
         }
 
+
         if (nextImage >= images[viewer].length) {
 
             nextImage = 0;
 
         }
 
+
         showImage(viewer, nextImage);
 
     }
 
+
     function openLightbox(viewer) {
 
         currentViewer = viewer;
+
 
         document
 
@@ -655,13 +688,16 @@
 
             .add("open");
 
+
         showLightboxImage(currentImages[viewer]);
 
     }
 
+
     function showLightboxImage(image) {
 
         currentImages[currentViewer] = image;
+
 
         document
 
@@ -669,9 +705,11 @@
 
             .src = images[currentViewer][image];
 
+
         const dots = document
 
             .querySelectorAll(".lightbox-dot");
+
 
         dots.forEach((dot, index) => {
 
@@ -681,9 +719,11 @@
 
     }
 
+
     function changeLightboxImage(direction) {
 
         let nextImage = currentImages[currentViewer] + direction;
+
 
         if (nextImage < 0) {
 
@@ -691,17 +731,21 @@
 
         }
 
+
         if (nextImage >= images[currentViewer].length) {
 
             nextImage = 0;
 
         }
 
+
         showLightboxImage(nextImage);
+
 
         showImage(currentViewer, nextImage);
 
     }
+
 
     function closeLightbox() {
 
@@ -714,6 +758,7 @@
             .remove("open");
 
     }
+
 
 </script>
 ```
