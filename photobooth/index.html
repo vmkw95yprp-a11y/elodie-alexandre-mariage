@@ -4,30 +4,52 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Photobooth — Élodie & Alexandre</title>
 
+
 <style>
 
+/* =========================
+   STYLE GÉNÉRAL
+========================= */
+
 * {
+
     box-sizing: border-box;
+
 }
+
 
 body {
+
     margin: 0;
+
     font-family: Arial, sans-serif;
+
     background: #faf9f7;
+
     color: #333;
+
     text-align: center;
+
 }
+
 
 h1 {
+
     margin: 30px 0 10px;
+
     font-size: 28px;
+
 }
 
-/* GALERIE */
+
+/* =========================
+   GALERIE
+========================= */
 
 .gallery {
 
@@ -45,6 +67,7 @@ h1 {
 
 }
 
+
 .photo {
 
     aspect-ratio: 1 / 1;
@@ -57,11 +80,13 @@ h1 {
 
 }
 
+
 .photo:hover {
 
     transform: scale(1.04);
 
 }
+
 
 .photo img {
 
@@ -75,7 +100,10 @@ h1 {
 
 }
 
-/* FENÊTRE PRINCIPALE */
+
+/* =========================
+   FENÊTRE PRINCIPALE
+========================= */
 
 .viewer {
 
@@ -97,11 +125,13 @@ h1 {
 
 }
 
+
 .viewer.active {
 
     display: flex;
 
 }
+
 
 .viewer-content {
 
@@ -111,7 +141,10 @@ h1 {
 
 }
 
-/* PHOTO PRINCIPALE */
+
+/* =========================
+   PHOTO PRINCIPALE
+========================= */
 
 .main-photo-container {
 
@@ -125,6 +158,7 @@ h1 {
 
 }
 
+
 .main-photo {
 
     max-width: 100%;
@@ -137,7 +171,10 @@ h1 {
 
 }
 
-/* PLEIN ÉCRAN */
+
+/* =========================
+   MODE PLEIN ÉCRAN
+========================= */
 
 .fullscreen {
 
@@ -157,11 +194,13 @@ h1 {
 
 }
 
+
 .fullscreen.active {
 
     display: flex;
 
 }
+
 
 .fullscreen img {
 
@@ -172,6 +211,7 @@ h1 {
     object-fit: contain;
 
 }
+
 
 .fullscreen-close {
 
@@ -191,7 +231,10 @@ h1 {
 
 }
 
-/* FLÈCHES */
+
+/* =========================
+   FLÈCHES
+========================= */
 
 .arrow {
 
@@ -219,11 +262,13 @@ h1 {
 
 }
 
+
 .arrow:hover {
 
     background: rgba(255, 255, 255, 0.35);
 
 }
+
 
 .arrow-left {
 
@@ -231,13 +276,17 @@ h1 {
 
 }
 
+
 .arrow-right {
 
     right: 20px;
 
 }
 
-/* MINIATURES */
+
+/* =========================
+   MINIATURES
+========================= */
 
 .thumbnails {
 
@@ -257,11 +306,14 @@ h1 {
 
 }
 
+
 .thumbnail {
 
     width: 75px;
 
     height: 75px;
+
+    aspect-ratio: 1 / 1;
 
     object-fit: cover;
 
@@ -273,6 +325,7 @@ h1 {
 
 }
 
+
 .thumbnail.active {
 
     opacity: 1;
@@ -283,7 +336,10 @@ h1 {
 
 }
 
-/* BOUTONS */
+
+/* =========================
+   BOUTONS
+========================= */
 
 .actions {
 
@@ -299,6 +355,7 @@ h1 {
 
 }
 
+
 .actions button {
 
     border: none;
@@ -313,6 +370,7 @@ h1 {
 
 }
 
+
 .download {
 
     background: white;
@@ -320,6 +378,7 @@ h1 {
     color: #222;
 
 }
+
 
 .download-group {
 
@@ -329,7 +388,10 @@ h1 {
 
 }
 
-/* FERMER */
+
+/* =========================
+   FERMER
+========================= */
 
 .close {
 
@@ -349,7 +411,10 @@ h1 {
 
 }
 
-/* COMPTEUR */
+
+/* =========================
+   COMPTEUR
+========================= */
 
 .counter {
 
@@ -363,9 +428,13 @@ h1 {
 
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
+
 
     h1 {
 
@@ -374,6 +443,7 @@ h1 {
         margin-top: 22px;
 
     }
+
 
     .gallery {
 
@@ -387,17 +457,20 @@ h1 {
 
     }
 
+
     .viewer {
 
         padding: 10px;
 
     }
 
+
     .main-photo-container {
 
         height: 65vh;
 
     }
+
 
     .main-photo {
 
@@ -406,6 +479,7 @@ h1 {
         max-height: 65vh;
 
     }
+
 
     .arrow {
 
@@ -417,11 +491,13 @@ h1 {
 
     }
 
+
     .arrow-left {
 
         left: 3px;
 
     }
+
 
     .arrow-right {
 
@@ -429,13 +505,17 @@ h1 {
 
     }
 
+
     .thumbnail {
 
         width: 55px;
 
         height: 55px;
 
+        aspect-ratio: 1 / 1;
+
     }
+
 
     .actions button {
 
@@ -451,21 +531,28 @@ h1 {
 
 </head>
 
+
 <body>
 
+
 <h1>Le photobooth 📸</h1>
+
 
 <div
     class="gallery"
     id="gallery">
+
 </div>
 
 
-<!-- FENÊTRE PRINCIPALE -->
+<!-- =========================
+     FENÊTRE PRINCIPALE
+========================= -->
 
 <div
     class="viewer"
     id="viewer">
+
 
     <span
         class="close"
@@ -501,9 +588,11 @@ h1 {
         <div
             class="main-photo-container">
 
+
             <img
                 id="mainPhoto"
                 class="main-photo">
+
 
         </div>
 
@@ -517,6 +606,7 @@ h1 {
 
         <div
             class="actions">
+
 
             <button
                 class="download"
@@ -535,6 +625,7 @@ h1 {
 
             </button>
 
+
         </div>
 
 
@@ -544,12 +635,16 @@ h1 {
 
         </div>
 
+
     </div>
+
 
 </div>
 
 
-<!-- MODE PLEIN ÉCRAN -->
+<!-- =========================
+     MODE PLEIN ÉCRAN
+========================= -->
 
 <div
     class="fullscreen"
@@ -586,305 +681,76 @@ h1 {
 
     </button>
 
+
 </div>
 
 
 <script>
 
 
-/* DOSSIER DES PHOTOS */
+/* =========================
+   DOSSIER DES PHOTOS
+========================= */
 
 const dossier = "../images/photobooth/";
 
 
+/* =========================
+   PHOTOS PRINCIPALES
+=========================
 
-/*
-    PHOTOS DU PHOTOBOOTH
+   COLLE ICI TA LISTE COMPLÈTE
+   DES PHOTOS PRINCIPALES
 
-    Chaque photo sans IMG_ est une photo principale
+   Exemple :
+
+   const photos = [
+
+       "20260523_184901_640.jpg",
+       "20260523_185252_043.jpg"
+
+   ];
+
 */
 
 const photos = [
 
-    "20260523_184901_640.jpg",
-    "20260523_185252_043.jpg",
-    "20260523_185417_189.jpg",
-    "20260523_185728_781.jpg",
-    "20260523_190444_650.jpg",
-    "20260523_190619_012_1x.jpg",
-    "20260523_190716_155_1x.jpg",
-    "20260523_191014_135_1x.jpg",
-    "20260523_191129_065.jpg",
-    "20260523_191240_964.jpg",
-    "20260523_191340_370_1x.jpg",
-    "20260523_191441_533.jpg",
-    "20260523_191618_343.jpg",
-    "20260523_191739_704.jpg",
-    "20260523_191822_672.jpg",
-    "20260523_191926_000.jpg",
-    "20260523_192052_654_1x.jpg",
-    "20260523_192153_489_1x.jpg",
-    "20260523_192435_400.jpg",
-    "20260523_192524_687.jpg",
-    "20260523_192628_319.jpg",
-    "20260523_192837_186.jpg",
-    "20260523_192935_493.jpg",
-    "20260523_193111_030.jpg",
-    "20260523_193142_256.jpg",
-    "20260523_193207_140.jpg",
-    "20260523_193502_183.jpg",
-    "20260523_193707_083.jpg",
-    "20260523_193851_527.jpg",
-    "20260523_194034_097.jpg",
-    "20260523_194201_385.jpg",
-    "20260523_194330_549.jpg",
-    "20260523_194451_111.jpg",
-    "20260523_194614_230.jpg",
-    "20260523_194753_122.jpg",
-    "20260523_195051_181.jpg",
-    "20260523_195129_179.jpg",
-    "20260523_195155_540.jpg",
-    "20260523_195225_581.jpg",
-    "20260523_195308_919_1x.jpg",
-    "20260523_195348_070.jpg",
-    "20260523_195455_830.jpg",
-    "20260523_195551_905.jpg",
-    "20260523_195724_466_1x.jpg",
-    "20260523_195809_761.jpg",
-    "20260523_195916_877.jpg",
-    "20260523_200015_344.jpg",
-    "20260523_200133_400_1x.jpg",
-    "20260523_200226_426.jpg",
-    "20260523_200322_825.jpg",
-    "20260523_200437_097.jpg",
-    "20260523_200734_280.jpg",
-    "20260523_200846_268.jpg",
-    "20260523_200937_151.jpg",
-    "20260523_201052_035.jpg",
-    "20260523_201132_166.jpg",
-    "20260523_201218_859.jpg",
-    "20260523_201340_813.jpg",
-    "20260523_201449_519_1x.jpg",
-    "20260523_201915_370.jpg",
-    "20260523_202026_099.jpg",
-    "20260523_202124_845.jpg",
-    "20260523_202220_114.jpg",
-    "20260523_202503_480.jpg",
-    "20260523_202752_150.jpg",
-    "20260523_203141_742.jpg",
-    "20260523_203319_954.jpg",
-    "20260523_203542_061.jpg",
-    "20260523_203604_501.jpg",
-    "20260523_203720_790.jpg",
-    "20260523_203743_482.jpg",
-    "20260523_203837_431.jpg",
-    "20260523_203907_247.jpg",
-    "20260523_204031_899.jpg",
-    "20260523_204139_289.jpg",
-    "20260523_204221_852.jpg",
-    "20260523_204336_884.jpg",
-    "20260523_205428_421.jpg",
-    "20260523_225633_310.jpg",
-    "20260523_225736_267.jpg",
-    "20260523_231545_304.jpg",
-    "20260523_231731_808.jpg",
-    "20260523_231924_342.jpg",
-    "20260523_231948_589.jpg",
-    "20260523_232010_960.jpg",
-    "20260523_232040_445.jpg",
-    "20260523_232139_643.jpg",
-    "20260523_232214_476.jpg",
-    "20260523_232231_372.jpg",
-    "20260523_232330_352.jpg",
-    "20260523_232425_866.jpg",
-    "20260523_232446_364.jpg",
-    "20260523_232513_777.jpg",
-    "20260523_232630_011.jpg",
-    "20260523_232714_104.jpg",
-    "20260523_232744_242.jpg",
-    "20260523_232913_146.jpg",
-    "20260524_004627_223_1x.jpg",
-    "20260524_004825_727.jpg",
-    "20260524_004906_648.jpg",
-    "20260524_004928_388.jpg",
-    "20260524_004952_261.jpg",
-    "20260524_005012_704.jpg",
-    "20260524_005127_484.jpg",
-    "20260524_005214_256.jpg",
-    "20260524_005253_539.jpg",
-    "20260524_005401_248.jpg",
-    "20260524_005521_236_1x.jpg",
-    "20260524_005616_495.jpg",
-    "20260524_005738_955_1x.jpg",
-    "20260524_010004_918.jpg",
-    "20260524_010028_098.jpg",
-    "20260524_010054_849.jpg",
-    "20260524_010349_362.jpg",
-    "20260524_010511_644.jpg",
-    "20260524_010537_033.jpg",
-    "20260524_010700_546.jpg",
-    "20260524_010823_362.jpg",
-    "20260524_010948_055.jpg",
-    "20260524_011031_676.jpg",
-    "20260524_011101_951.jpg",
-    "20260524_011119_288.jpg",
-    "20260524_011142_027.jpg",
-    "20260524_011217_968.jpg",
-    "20260524_011255_446.jpg",
-    "20260524_011356_881.jpg",
-    "20260524_011504_393.jpg",
-    "20260524_011530_530.jpg",
-    "20260524_011844_052.jpg",
-    "20260524_011937_897.jpg",
-    "20260524_011956_760.jpg",
-    "20260524_012014_396.jpg",
-    "20260524_012030_920.jpg",
-    "20260524_012050_502.jpg",
-    "20260524_012111_381.jpg",
-    "20260524_012128_743.jpg",
-    "20260524_012238_378.jpg",
-    "20260524_012301_685.jpg",
-    "20260524_012404_946.jpg",
-    "20260524_012440_433.jpg",
-    "20260524_012602_350.jpg",
-    "20260524_012656_284.jpg",
-    "20260524_012859_792.jpg",
-    "20260524_013150_497.jpg",
-    "20260524_013247_337.jpg",
-    "20260524_013320_741.jpg",
-    "20260524_013540_634.jpg",
-    "20260524_013603_953.jpg",
-    "20260524_013632_930.jpg",
-    "20260524_013658_625.jpg",
-    "20260524_014051_035.jpg",
-    "20260524_014155_486.jpg",
-    "20260524_014317_175_1x.jpg",
-    "20260524_014726_591.jpg",
-    "20260524_014802_611.jpg",
-    "20260524_015019_765.jpg",
-    "20260524_015141_780.jpg",
-    "20260524_015447_658.jpg",
-    "20260524_015624_993_1x.jpg",
-    "20260524_015800_769.jpg",
-    "20260524_015919_579.jpg",
-    "20260524_020123_747.jpg",
-    "20260524_020202_567.jpg",
-    "20260524_020227_283.jpg",
-    "20260524_021524_640.jpg",
-    "20260524_021600_695_1x.jpg",
-    "20260524_023108_605.jpg",
-    "20260524_023730_757_1x.jpg",
-    "20260524_024323_314.jpg",
-    "20260524_024527_143.jpg",
-    "20260524_024623_541.jpg",
-    "20260524_024717_229.jpg",
-    "20260524_024837_021.jpg",
-    "20260524_024943_964.jpg",
-    "20260524_025155_968.jpg",
-    "20260524_025234_399.jpg",
-    "20260524_025335_516_1x.jpg",
-    "20260524_025458_430.jpg",
-    "20260524_025521_352.jpg",
-    "20260524_025617_927.jpg",
-    "20260524_025708_979.jpg",
-    "20260524_025727_741.jpg",
-    "20260524_025826_739.jpg",
-    "20260524_025847_236.jpg",
-    "20260524_030024_758_1x.jpg",
-    "20260524_030303_271.jpg",
-    "20260524_030327_699.jpg",
-    "20260524_030421_865_1x.jpg",
-    "20260524_030501_619_1x.jpg",
-    "20260524_030540_255_1x.jpg",
-    "20260524_030748_201.jpg",
-    "20260524_030818_014.jpg",
-    "20260524_030857_289.jpg",
-    "20260524_031647_749.jpg",
-    "20260524_031942_015.jpg",
-    "20260524_032150_684.jpg",
-    "20260524_032219_352.jpg",
-    "20260524_032328_674.jpg",
-    "20260524_034120_895.jpg",
-    "20260524_034140_329.jpg",
-    "20260524_034230_674_1x.jpg",
-    "20260524_034423_526.jpg",
-    "20260524_034447_391.jpg",
-    "20260524_034539_888.jpg",
-    "20260524_035027_789.jpg",
-    "20260524_035120_856.jpg",
-    "20260524_035508_415_1x.jpg",
-    "20260524_035555_917.jpg",
-    "20260524_035650_044.jpg",
-    "20260524_035712_770.jpg",
-    "20260524_035816_974.jpg",
-    "20260524_040115_430.jpg",
-    "20260524_040907_330_1x.jpg",
-    "20260524_041117_048.jpg",
-    "20260524_041225_227.jpg",
-    "20260524_041326_113.jpg",
-    "20260524_041900_349.jpg",
-    "20260524_041940_945.jpg",
-    "20260524_042304_179_1x.jpg",
-    "20260524_042741_658.jpg",
-    "20260524_043059_200.jpg",
-    "20260524_043118_208.jpg",
-    "20260524_043206_181.jpg",
-    "20260524_043232_050.jpg",
-    "20260524_043311_062_1x.jpg",
-    "20260524_043437_037.jpg",
-    "20260524_043455_319.jpg",
-    "20260524_044029_914.jpg",
-    "20260524_044142_190.jpg",
-    "20260524_044213_603.jpg",
-    "20260524_044334_278_1x.jpg",
-    "20260524_044514_272.jpg",
-    "20260524_044551_182.jpg",
-    "20260524_044657_723_1x.jpg"
+    /* COLLE ICI TA LISTE photos */
 
 ];
 
 
-/*
-    PHOTOS DU PHOTOGRAPHE
+/* =========================
+   PHOTOS DU PHOTOGRAPHE
+=========================
+
+   COLLE ICI TA LISTE COMPLÈTE
+   DES PHOTOS IMG_...
+
+   Exemple :
+
+   const photosPhotographe = [
+
+       "IMG_7134_20260523_184837_3600.JPG",
+       "IMG_7135_20260523_184846_3600.JPG"
+
+   ];
+
 */
 
 const photosPhotographe = [
 
-    "IMG_7134_20260523_184837_3600.JPG",
-    "IMG_7135_20260523_184846_3600.JPG",
-    "IMG_7137_20260523_185230_3600.JPG",
-    "IMG_7138_20260523_185238_3600.JPG",
-    "IMG_7139_20260523_185407_3600.JPG",
-    "IMG_7143_20260523_185723_3600.JPG",
-    "IMG_7146_20260523_190434_3600.JPG",
-    "IMG_7147_20260523_190544_3600.JPG",
-    "IMG_7148_20260523_190552_3600.JPG",
-    "IMG_7149_20260523_190601_3600.JPG",
-    "IMG_7150_20260523_190645_3600.JPG",
-    "IMG_7151_20260523_190654_3600.JPG",
-    "IMG_7152_20260523_190703_3600.JPG",
-
-    // ... conserve ici toute ta liste actuelle ...
-
-    "IMG_7545_20260524_044634_3600.JPG"
+    /* COLLE ICI TA LISTE photosPhotographe */
 
 ];
 
 
-/*
-    REGROUPEMENT DES PHOTOS
-*/
-
-const toutesLesPhotos = [
-
-    ...photos,
-
-    ...photosPhotographe
-
-];
-
+/* =========================
+   EXTRACTION DE LA DATE
+========================= */
 
 function obtenirDatePhoto(nom) {
+
 
     const correspondance = nom.match(
 
@@ -892,11 +758,13 @@ function obtenirDatePhoto(nom) {
 
     );
 
+
     if (!correspondance) {
 
         return 0;
 
     }
+
 
     return Number(
 
@@ -909,117 +777,230 @@ function obtenirDatePhoto(nom) {
 }
 
 
-toutesLesPhotos.sort(
+/* =========================
+   TRI DES PHOTOS PRINCIPALES
+========================= */
 
-    function(a, b) {
+const photosPrincipales = photos
 
-        return (
-
-            obtenirDatePhoto(a) -
-
-            obtenirDatePhoto(b)
-
-        );
-
-    }
-
-);
+    .map(function(photo) {
 
 
-/*
-    CRÉATION DES GROUPES
+        return {
 
-    Chaque photo principale est associée
-    aux photos du photographe qui la précèdent.
+            nom: photo,
 
-    Maximum 3 photos du photographe
-    par groupe.
-*/
+            date: obtenirDatePhoto(photo)
+
+        };
+
+
+    })
+
+
+    .sort(function(a, b) {
+
+
+        return a.date - b.date;
+
+
+    });
+
+
+/* =========================
+   TRI DES PHOTOS DU PHOTOGRAPHE
+========================= */
+
+const photosPhotographeTriees = photosPhotographe
+
+    .map(function(photo) {
+
+
+        return {
+
+            nom: photo,
+
+            date: obtenirDatePhoto(photo)
+
+        };
+
+
+    })
+
+
+    .sort(function(a, b) {
+
+
+        return a.date - b.date;
+
+
+    });
+
+
+/* =========================
+   CRÉATION DES GROUPES
+========================= */
 
 const groupes = [];
 
-let photosPhotographeEnAttente = [];
+
+photosPrincipales.forEach(function(photoPrincipale, index) {
 
 
-toutesLesPhotos.forEach(function(photo) {
+    const dateDebut = photoPrincipale.date;
 
-    if (photo.startsWith("IMG_")) {
 
-        photosPhotographeEnAttente.push(photo);
+    const dateFin =
 
-        return;
+        index < photosPrincipales.length - 1
+
+            ? photosPrincipales[index + 1].date
+
+            : Infinity;
+
+
+    /*
+        On récupère les photos IMG_...
+
+        qui sont juste avant la photo principale
+        et jusqu'à la photo principale suivante.
+
+        Exemple :
+
+        18:48:37 IMG
+        18:48:46 IMG
+        18:49:01 PHOTO PRINCIPALE
+
+        Ces deux photos sont rattachées
+        à la photo principale de 18:49:01.
+    */
+
+
+    const photosDuGroupe = photosPhotographeTriees
+
+        .filter(function(photo) {
+
+
+            return (
+
+                photo.date >= dateDebut - 60 &&
+
+                photo.date < dateFin
+
+            );
+
+
+        });
+
+
+    /*
+        MAXIMUM DE 3 PHOTOS PAR GROUPE
+    */
+
+    const photosDuGroupeLimitees =
+
+        photosDuGroupe.slice(0, 3);
+
+
+    /*
+        On crée le groupe uniquement
+        s'il contient au moins une photo.
+    */
+
+
+    if (photosDuGroupeLimitees.length > 0) {
+
+
+        groupes.push({
+
+
+            principale: photoPrincipale.nom,
+
+
+            photos: photosDuGroupeLimitees.map(function(photo) {
+
+
+                return photo.nom;
+
+
+            })
+
+
+        });
+
 
     }
-
-
-    const groupe = [
-
-        ...photosPhotographeEnAttente.slice(-3),
-
-        photo
-
-    ];
-
-
-    groupes.push(groupe);
-
-
-    photosPhotographeEnAttente = [];
 
 });
 
 
-/*
-    RECHERCHE DU GROUPE
-*/
-
-function trouverGroupe(photo) {
-
-    return groupes.find(function(groupe) {
-
-        return groupe.includes(photo);
-
-    });
-
-}
-
-
-/*
-    ÉLÉMENTS HTML
-*/
+/* =========================
+   ÉLÉMENTS HTML
+========================= */
 
 const gallery = document.getElementById("gallery");
 
+
 const viewer = document.getElementById("viewer");
+
 
 const fullscreen = document.getElementById("fullscreen");
 
+
 const mainPhoto = document.getElementById("mainPhoto");
+
 
 const fullscreenPhoto = document.getElementById("fullscreenPhoto");
 
+
 const thumbnails = document.getElementById("thumbnails");
 
+
 const counter = document.getElementById("counter");
+
+
+let groupeActuel = 0;
 
 
 let photoActuelle = 0;
 
 
-/*
-    CRÉATION DE LA GALERIE
-*/
+/* =========================
+   CRÉATION DE LA GALERIE
+=========================
 
-toutesLesPhotos.forEach(function(photo, index) {
+   IMPORTANT :
+
+   La vignette utilise la première
+   photo IMG_... du groupe.
+
+   La photo principale n'est jamais utilisée
+   comme vignette.
+========================= */
+
+groupes.forEach(function(groupe, index) {
+
 
     const div = document.createElement("div");
+
 
     div.className = "photo";
 
 
     const img = document.createElement("img");
 
-    img.src = dossier + photo;
+
+    /*
+        PREMIÈRE PHOTO DU GROUPE
+
+        Exemple :
+
+        IMG_7134_...
+    */
+
+
+    img.src = dossier + groupe.photos[0];
+
 
     img.loading = "lazy";
 
@@ -1029,230 +1010,269 @@ toutesLesPhotos.forEach(function(photo, index) {
 
     div.onclick = function() {
 
-        photoActuelle = index;
+
+        groupeActuel = index;
+
+
+        photoActuelle = 0;
+
 
         afficherPhoto();
 
+
         viewer.classList.add("active");
 
+
         document.body.style.overflow = "hidden";
+
 
     };
 
 
     gallery.appendChild(div);
 
+
 });
 
 
-/*
-    AFFICHER LA PHOTO
-*/
+/* =========================
+   AFFICHER LA PHOTO
+========================= */
 
 function afficherPhoto() {
 
-    const photo = toutesLesPhotos[photoActuelle];
+
+    const groupe = groupes[groupeActuel];
+
+
+    const photo = groupe.photos[photoActuelle];
 
 
     mainPhoto.src = dossier + photo;
+
 
     fullscreenPhoto.src = dossier + photo;
 
 
     counter.textContent =
 
-        (photoActuelle + 1)
+        "Groupe "
+
+        + (groupeActuel + 1)
 
         + " / "
 
-        + toutesLesPhotos.length;
+        + groupes.length
+
+        + " — Photo "
+
+        + (photoActuelle + 1)
+
+        + " / "
+
+        + groupe.photos.length;
 
 
     afficherMiniatures();
 
+
 }
 
 
-/*
-    MINIATURES
-*/
+/* =========================
+   MINIATURES
+========================= */
 
 function afficherMiniatures() {
+
 
     thumbnails.innerHTML = "";
 
 
-    const debut = Math.max(
-
-        0,
-
-        photoActuelle - 2
-
-    );
+    const groupe = groupes[groupeActuel];
 
 
-    const fin = Math.min(
+    groupe.photos.forEach(function(photo, index) {
 
-        toutesLesPhotos.length,
-
-        photoActuelle + 3
-
-    );
-
-
-    for (
-
-        let i = debut;
-
-        i < fin;
-
-        i++
-
-    ) {
 
         const thumbnail = document.createElement("img");
 
 
-        thumbnail.src =
-
-            dossier +
-
-            toutesLesPhotos[i];
+        thumbnail.src = dossier + photo;
 
 
         thumbnail.className = "thumbnail";
 
 
-        if (
+        if (index === photoActuelle) {
 
-            i === photoActuelle
-
-        ) {
 
             thumbnail.classList.add("active");
+
 
         }
 
 
         thumbnail.onclick = function() {
 
-            photoActuelle = i;
+
+            photoActuelle = index;
+
 
             afficherPhoto();
+
 
         };
 
 
         thumbnails.appendChild(thumbnail);
 
-    }
+
+    });
+
 
 }
 
 
-/*
-    PHOTO SUIVANTE
-*/
+/* =========================
+   PHOTO SUIVANTE
+========================= */
 
 function photoSuivante() {
 
+
+    const groupe = groupes[groupeActuel];
+
+
     photoActuelle =
 
-        (
 
-            photoActuelle + 1
-
-        )
+        (photoActuelle + 1)
 
         %
 
-        toutesLesPhotos.length;
+        groupe.photos.length;
 
 
     afficherPhoto();
 
+
 }
 
 
-/*
-    PHOTO PRÉCÉDENTE
-*/
+/* =========================
+   PHOTO PRÉCÉDENTE
+========================= */
 
 function photoPrecedente() {
 
+
+    const groupe = groupes[groupeActuel];
+
+
     photoActuelle =
+
 
         (
 
+
             photoActuelle - 1 +
 
-            toutesLesPhotos.length
+            groupe.photos.length
+
 
         )
 
         %
 
-        toutesLesPhotos.length;
+        groupe.photos.length;
 
 
     afficherPhoto();
 
+
 }
 
 
-/*
-    NAVIGATION
-*/
+/* =========================
+   NAVIGATION
+========================= */
 
-document.getElementById("next").onclick = photoSuivante;
+document.getElementById("next").onclick =
 
-document.getElementById("previous").onclick = photoPrecedente;
-
-document.getElementById("fullscreenNext").onclick = photoSuivante;
-
-document.getElementById("fullscreenPrevious").onclick = photoPrecedente;
+    photoSuivante;
 
 
-/*
-    PLEIN ÉCRAN
-*/
+document.getElementById("previous").onclick =
+
+    photoPrecedente;
+
+
+document.getElementById("fullscreenNext").onclick =
+
+    photoSuivante;
+
+
+document.getElementById("fullscreenPrevious").onclick =
+
+    photoPrecedente;
+
+
+/* =========================
+   PLEIN ÉCRAN
+========================= */
 
 mainPhoto.onclick = function() {
 
+
     fullscreen.classList.add("active");
+
 
     document.body.style.overflow = "hidden";
 
-};
-
-
-/*
-    FERMETURE
-*/
-
-document.getElementById("close").onclick = function() {
-
-    viewer.classList.remove("active");
-
-    document.body.style.overflow = "";
 
 };
 
 
 document.getElementById("fullscreenClose").onclick = function() {
 
+
     fullscreen.classList.remove("active");
+
 
 };
 
 
-/*
-    TÉLÉCHARGER UNE PHOTO
-*/
+/* =========================
+   FERMETURE
+========================= */
+
+document.getElementById("close").onclick = function() {
+
+
+    viewer.classList.remove("active");
+
+
+    fullscreen.classList.remove("active");
+
+
+    document.body.style.overflow = "";
+
+
+};
+
+
+/* =========================
+   TÉLÉCHARGER UNE PHOTO
+========================= */
 
 document.getElementById("downloadPhoto").onclick = function() {
 
-    const photo = toutesLesPhotos[photoActuelle];
+
+    const groupe = groupes[groupeActuel];
+
+
+    const photo = groupe.photos[photoActuelle];
 
 
     const lien = document.createElement("a");
@@ -1266,68 +1286,81 @@ document.getElementById("downloadPhoto").onclick = function() {
 
     lien.click();
 
+
 };
 
 
-/*
-    TÉLÉCHARGER LE GROUPE
-*/
+/* =========================
+   TÉLÉCHARGER LE GROUPE
+========================= */
 
 document.getElementById("downloadGroup").onclick = function() {
 
-    const photo = toutesLesPhotos[photoActuelle];
+
+    const groupe = groupes[groupeActuel];
 
 
-    const groupe = trouverGroupe(photo);
+    groupe.photos.forEach(function(photo, index) {
 
-
-    if (!groupe) {
-
-        alert("Groupe introuvable.");
-
-        return;
-
-    }
-
-
-    groupe.forEach(function(photoDuGroupe, index) {
 
         setTimeout(function() {
+
 
             const lien = document.createElement("a");
 
 
-            lien.href = dossier + photoDuGroupe;
+            lien.href = dossier + photo;
 
 
-            lien.download = photoDuGroupe;
+            lien.download = photo;
 
 
             lien.click();
 
-        }, index * 500);
+
+        }, index * 300);
+
 
     });
+
 
 };
 
 
-/*
-    CLAVIER
-*/
+/* =========================
+   CLAVIER
+========================= */
 
 document.addEventListener("keydown", function(event) {
 
+
+    if (
+
+        !viewer.classList.contains("active")
+
+    ) {
+
+
+        return;
+
+
+    }
+
+
     if (event.key === "ArrowRight") {
 
+
         photoSuivante();
+
 
     }
 
 
     if (event.key === "ArrowLeft") {
 
+
         photoPrecedente();
+
 
     }
 
@@ -1335,73 +1368,92 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
 
 
-        if (fullscreen.classList.contains("active")) {
+        if (
+
+            fullscreen.classList.contains("active")
+
+        ) {
+
 
             fullscreen.classList.remove("active");
+
 
         }
 
         else {
 
+
             viewer.classList.remove("active");
+
 
             document.body.style.overflow = "";
 
+
         }
 
+
     }
+
 
 });
 
 
-/*
-    SWIPE MOBILE
-*/
+/* =========================
+   SWIPE MOBILE
+========================= */
 
 let touchStartX = 0;
+
 
 let touchEndX = 0;
 
 
 viewer.addEventListener("touchstart", function(event) {
 
+
     touchStartX = event.changedTouches[0].screenX;
+
 
 });
 
 
 viewer.addEventListener("touchend", function(event) {
 
+
     touchEndX = event.changedTouches[0].screenX;
 
 
-    const difference =
-
-        touchStartX -
-
-        touchEndX;
+    const difference = touchStartX - touchEndX;
 
 
     if (Math.abs(difference) < 50) {
 
+
         return;
+
 
     }
 
 
     if (difference > 0) {
 
+
         photoSuivante();
+
 
     }
 
     else {
 
+
         photoPrecedente();
+
 
     }
 
+
 });
+
 
 </script>
 
