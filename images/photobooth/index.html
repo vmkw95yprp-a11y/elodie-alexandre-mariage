@@ -3,12 +3,10 @@
 <html lang="fr">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Le photobooth — Élodie & Alexandre</title>
 
 <style>
@@ -132,7 +130,6 @@
         font-size: 2.5rem;
         cursor: pointer;
         z-index: 1002;
-        font-weight: 200;
     }
 
     .lightbox-content {
@@ -179,7 +176,6 @@
     }
 
     @media (max-width: 800px) {
-
         .gallery {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -187,11 +183,9 @@
         .associated-photos {
             grid-template-columns: repeat(2, 1fr);
         }
-
     }
 
     @media (max-width: 500px) {
-
         .page {
             padding: 30px 15px 50px;
         }
@@ -215,7 +209,6 @@
         .associated-photos {
             grid-template-columns: 1fr;
         }
-
     }
 
 </style>
@@ -230,14 +223,14 @@
 
     <header class="header">
 
-        <a href="../" class="back">
+        <a href="../../../" class="back">
             ← Retour à notre mariage
         </a>
 
         <br>
 
         <img
-            src="../images/style/logo.jpg"
+            src="../style/logo.jpg"
             alt="Monogramme Élodie et Alexandre"
             class="logo"
         >
@@ -253,10 +246,7 @@
 
     </header>
 
-    <section
-        class="gallery"
-        id="gallery"
-    ></section>
+    <section class="gallery" id="gallery"></section>
 
     <footer class="footer">
         ❤️ Élodie & Alexandre ❤️
@@ -264,42 +254,21 @@
 
 </main>
 
+<div class="lightbox" id="lightbox">
 
-<div
-    class="lightbox"
-    id="lightbox"
->
-
-    <span
-        class="close"
-        id="close"
-    >
-        &times;
-    </span>
+    <span class="close" id="close">&times;</span>
 
     <div class="lightbox-content">
 
-        <img
-            id="mainPhoto"
-            class="main-photo"
-            src=""
-            alt=""
-        >
+        <img id="mainPhoto" class="main-photo" src="" alt="">
 
-        <div
-            id="associatedPhotos"
-            class="associated-photos"
-        ></div>
+        <div id="associatedPhotos" class="associated-photos"></div>
 
-        <p
-            id="photoTitle"
-            class="photo-title"
-        ></p>
+        <p id="photoTitle" class="photo-title"></p>
 
     </div>
 
 </div>
-
 
 <script>
 
@@ -307,247 +276,143 @@
 
         {
             principale: "20260523_184901_640.jpg",
-
             photos: [
                 "IMG_7134_20260523_184837_3600.JPG",
                 "IMG_7135_20260523_184846_3600.JPG"
             ]
-
         },
-
 
         {
             principale: "20260523_185252_043.jpg",
-
             photos: [
                 "IMG_7137_20260523_185230_3600.JPG",
                 "IMG_7138_20260523_185238_3600.JPG"
             ]
-
         },
-
 
         {
             principale: "20260523_185417_189.jpg",
-
             photos: [
                 "IMG_7139_20260523_185407_3600.JPG"
             ]
-
         },
-
 
         {
             principale: "20260523_185728_781.jpg",
-
             photos: [
                 "IMG_7143_20260523_185723_3600.JPG"
             ]
-
         },
-
 
         {
             principale: "20260523_190444_650.jpg",
-
             photos: [
                 "IMG_7146_20260523_190434_3600.JPG"
             ]
-
         },
-
 
         {
             principale: "20260523_190619_012_1x.jpg",
-
             photos: [
                 "IMG_7147_20260523_190544_3600.JPG",
                 "IMG_7148_20260523_190552_3600.JPG",
                 "IMG_7149_20260523_190601_3600.JPG"
             ]
-
         }
 
     ];
 
+    const dossierImages = "./";
 
-    const dossierImages =
-        "../images/photobooth/";
-
-
-    const gallery =
-        document.getElementById("gallery");
-
-
-    const lightbox =
-        document.getElementById("lightbox");
-
-
-    const mainPhoto =
-        document.getElementById("mainPhoto");
-
-
-    const associatedPhotos =
-        document.getElementById("associatedPhotos");
-
-
-    const photoTitle =
-        document.getElementById("photoTitle");
-
-
-    const close =
-        document.getElementById("close");
-
+    const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("lightbox");
+    const mainPhoto = document.getElementById("mainPhoto");
+    const associatedPhotos = document.getElementById("associatedPhotos");
+    const photoTitle = document.getElementById("photoTitle");
+    const close = document.getElementById("close");
 
     groupes.forEach((groupe) => {
 
+        const card = document.createElement("div");
 
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "photo-card";
-
+        card.className = "photo-card";
 
         card.innerHTML = `
-
             <img
-
                 src="${dossierImages}${groupe.principale}"
-
                 alt="Photo du photobooth"
-
             >
 
-
             <span class="photo-count">
-
                 ${groupe.photos.length}
-
                 photo${groupe.photos.length > 1 ? "s" : ""}
-
             </span>
-
         `;
 
+        card.addEventListener("click", () => {
 
-        card.addEventListener(
-            "click",
-            () => {
+            mainPhoto.src =
+                dossierImages + groupe.principale;
 
+            associatedPhotos.innerHTML = "";
 
-                mainPhoto.src =
-                    dossierImages +
-                    groupe.principale;
+            groupe.photos.forEach((photo) => {
 
+                const img = document.createElement("img");
 
-                associatedPhotos.innerHTML =
-                    "";
+                img.src =
+                    dossierImages + photo;
 
+                img.alt =
+                    "Photo du photobooth";
 
-                groupe.photos.forEach(
-                    (photo) => {
+                associatedPhotos.appendChild(img);
 
+            });
 
-                        const img =
-                            document.createElement(
-                                "img"
-                            );
+            photoTitle.textContent =
+                `${groupe.photos.length}
+                photo${groupe.photos.length > 1 ? "s" : ""}
+                associée${groupe.photos.length > 1 ? "s" : ""}`;
 
+            lightbox.classList.add("active");
 
-                        img.src =
-                            dossierImages +
-                            photo;
+            document.body.style.overflow = "hidden";
 
-
-                        img.alt =
-                            "Photo du photobooth";
-
-
-                        associatedPhotos.appendChild(
-                            img
-                        );
-
-                    }
-                );
-
-
-                photoTitle.textContent =
-
-                    `${groupe.photos.length}
-
-                    photo${groupe.photos.length > 1 ? "s" : ""}
-
-                    associée${groupe.photos.length > 1 ? "s" : ""}`;
-
-
-                lightbox.classList.add(
-                    "active"
-                );
-
-
-                document.body.style.overflow =
-                    "hidden";
-
-            }
-        );
+        });
 
     });
-
 
     close.addEventListener(
         "click",
         fermerLightbox
     );
 
-
     lightbox.addEventListener(
         "click",
         (event) => {
 
-
-            if (
-                event.target ===
-                lightbox
-            ) {
-
-
+            if (event.target === lightbox) {
                 fermerLightbox();
-
             }
 
         }
     );
 
-
     function fermerLightbox() {
 
+        lightbox.classList.remove("active");
 
-        lightbox.classList.remove(
-            "active"
-        );
-
-
-        document.body.style.overflow =
-            "";
+        document.body.style.overflow = "";
 
     }
-
 
     document.addEventListener(
         "keydown",
         (event) => {
 
-
-            if (
-                event.key ===
-                "Escape"
-            ) {
-
-
+            if (event.key === "Escape") {
                 fermerLightbox();
-
             }
 
         }
