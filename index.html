@@ -1,412 +1,590 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Élodie & Alexandre — 23 mai 2026</title>
+    <title>Élodie & Alexandre — 23 mai 2026</title>
 
-<style>
+    <style>
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
+        body {
 
-        font-family: Georgia, serif;
+            font-family: Arial, Helvetica, sans-serif;
 
-        background: #f8f6f2;
+            background: #faf9f7;
 
-        color: #333;
+            color: #333;
 
-    }
-
-    .page {
-
-        min-height: 100vh;
-
-        padding: 80px 30px;
-
-    }
-
-    .header {
-
-        text-align: center;
-
-        margin-bottom: 70px;
-
-    }
-
-    .header h1 {
-
-        font-size: clamp(2.8rem, 8vw, 5rem);
-
-        font-weight: normal;
-
-        margin-bottom: 20px;
-
-    }
-
-    .date {
-
-        letter-spacing: 4px;
-
-        font-size: 1rem;
-
-        margin-bottom: 25px;
-
-    }
-
-    .intro {
-
-        max-width: 650px;
-
-        margin: auto;
-
-        font-size: 1.1rem;
-
-        line-height: 1.8;
-
-    }
-
-    .menu {
-
-        max-width: 1100px;
-
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 25px;
-
-    }
-
-    .card {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        min-height: 180px;
-
-        padding: 30px;
-
-        border: 1px solid #d8d4cd;
-
-        background: #fbfaf8;
-
-        text-decoration: none;
-
-        color: #333;
-
-        text-align: center;
-
-        transition: 0.3s;
-
-    }
-
-    .card:hover {
-
-        transform: translateY(-5px);
-
-        background: #f1eee8;
-
-    }
-
-    .card span {
-
-        display: block;
-
-        font-size: 2.5rem;
-
-        margin-bottom: 15px;
-
-    }
-
-    .card h2 {
-
-        font-size: 1.3rem;
-
-        font-weight: normal;
-
-        letter-spacing: 1px;
-
-    }
-
-    .card p {
-
-        margin-top: 10px;
-
-        font-size: 0.95rem;
-
-    }
-
-    .featured {
-
-        grid-column: span 2;
-
-    }
-
-    @media (max-width: 700px) {
+        }
 
         .page {
 
-            padding: 50px 20px;
+            min-height: 100vh;
+
+            padding: 50px 25px 80px;
 
         }
 
         .header {
 
-            margin-bottom: 45px;
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            margin-bottom: 70px;
+
+        }
+
+        .logo {
+
+            width: 125px;
+
+            max-width: 40vw;
+
+            margin-bottom: 25px;
+
+        }
+
+        .names {
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(2.8rem, 8vw, 5rem);
+
+            font-weight: normal;
+
+            color: #72000b;
+
+            margin-bottom: 15px;
+
+        }
+
+        .date {
+
+            font-size: 1.1rem;
+
+            letter-spacing: 4px;
+
+            color: #72000b;
+
+            margin-bottom: 40px;
+
+        }
+
+        .intro {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            font-size: 1.15rem;
+
+            line-height: 1.8;
+
+        }
+
+        .intro strong {
+
+            display: block;
+
+            font-family: Georgia, serif;
+
+            font-size: 1.8rem;
+
+            font-weight: normal;
+
+            color: #72000b;
+
+            margin-bottom: 20px;
+
+        }
+
+        .intro p {
+
+            margin-top: 15px;
 
         }
 
         .menu {
 
-            grid-template-columns: 1fr;
+            max-width: 1100px;
 
-            gap: 15px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
 
         }
 
         .card {
 
-            min-height: 140px;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 175px;
+
+            padding: 30px;
+
+            border: 1px solid #d9b8bb;
+
+            background: #fff;
+
+            text-decoration: none;
+
+            color: #333;
+
+            text-align: center;
+
+            transition: 0.3s ease;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(114, 0, 11, 0.12);
+
+            border-color: #72000b;
+
+        }
+
+        .card span {
+
+            display: block;
+
+            font-size: 2.4rem;
+
+            margin-bottom: 15px;
+
+        }
+
+        .card h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 1.35rem;
+
+            font-weight: normal;
+
+            color: #72000b;
+
+        }
+
+        .card p {
+
+            margin-top: 10px;
+
+            font-size: 0.95rem;
+
+            color: #666;
 
         }
 
         .featured {
 
-            grid-column: span 1;
+            grid-column: span 2;
+
+            background: #72000b;
+
+            color: white;
 
         }
 
-    }
+        .featured h2,
 
-</style>
-```
+        .featured p {
+
+            color: white;
+
+        }
+
+        .featured:hover {
+
+            background: #5d0009;
+
+        }
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 70px;
+
+            color: #72000b;
+
+            font-family: Georgia, serif;
+
+            font-size: 1.3rem;
+
+        }
+
+        @media (max-width: 700px) {
+
+            .page {
+
+                padding: 35px 18px 60px;
+
+            }
+
+            .header {
+
+                margin-bottom: 45px;
+
+            }
+
+            .logo {
+
+                width: 105px;
+
+            }
+
+            .menu {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+            }
+
+            .card {
+
+                min-height: 145px;
+
+            }
+
+            .featured {
+
+                grid-column: span 1;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-```
-<main class="page">
-
-    <header class="header">
-
-        <h1>
-            Élodie & Alexandre
-        </h1>
-
-        <p class="date">
-            23 MAI 2026
-        </p>
-
-        <p class="intro">
-
-            Bienvenue dans les souvenirs de notre mariage.
-
-            <br><br>
-
-            Retrouvez ici les moments, les images, les musiques et les émotions
-            de cette journée si particulière.
-
-        </p>
-
-    </header>
+    <main class="page">
 
 
-    <section class="menu">
+        <header class="header">
 
 
-        <a href="invitation/" class="card">
+            <img
 
-            <div>
+                src="images/style/logo.jpg"
 
-                <span>💌</span>
+                alt="Monogramme Élodie et Alexandre"
 
-                <h2>
-                    L'invitation
-                </h2>
+                class="logo"
+
+            >
+
+
+            <h1 class="names">
+
+                Élodie & Alexandre
+
+            </h1>
+
+
+            <p class="date">
+
+                23 MAI 2026
+
+            </p>
+
+
+            <div class="intro">
+
+
+                <strong>
+
+                    On s'est mariés ! ❤️
+
+                </strong>
+
 
                 <p>
-                    Les faire-part
+
+                    Et franchement… quelle journée !
+
                 </p>
+
+
+                <p>
+
+                    Des mois de préparatifs, beaucoup d'émotions,
+
+                    énormément de rires et une journée que nous
+
+                    n'oublierons jamais.
+
+                </p>
+
+
+                <p>
+
+                    Alors on a décidé de tout garder ici.
+
+                </p>
+
+
+                <p>
+
+                    Bienvenue dans notre 23 mai 2026 ❤️
+
+                </p>
+
 
             </div>
 
-        </a>
 
+        </header>
 
-        <a href="preparatifs/" class="card">
 
-            <div>
+        <section class="menu">
 
-                <span>🌿</span>
 
-                <h2>
-                    Les préparatifs
-                </h2>
+            <a href="invitation/" class="card">
 
-                <p>
-                    Élodie & Alexandre
-                </p>
+                <div>
 
-            </div>
+                    <span>💌</span>
 
-        </a>
+                    <h2>
 
+                        L'invitation
 
-        <a href="first-look/" class="card">
+                    </h2>
 
-            <div>
+                    <p>
 
-                <span>✉️</span>
+                        Le début de l'aventure
 
-                <h2>
-                    Le First Look
-                </h2>
+                    </p>
 
-                <p>
-                    Le moment où nous nous sommes retrouvés
-                </p>
+                </div>
 
-            </div>
+            </a>
 
-        </a>
 
+            <a href="preparatifs/" class="card">
 
-        <a href="mairie/" class="card">
+                <div>
 
-            <div>
+                    <span>🌿</span>
 
-                <span>🏛️</span>
+                    <h2>
 
-                <h2>
-                    Le premier « Oui »
-                </h2>
+                        Avant le grand « Oui »
 
-                <p>
-                    La mairie
-                </p>
+                    </h2>
 
-            </div>
+                    <p>
 
-        </a>
+                        Les préparatifs d'Élodie & Alexandre
 
+                    </p>
 
-        <a href="ceremonie/" class="card">
+                </div>
 
-            <div>
+            </a>
 
-                <span>⛪</span>
 
-                <h2>
-                    La cérémonie
-                </h2>
+            <a href="first-look/" class="card">
 
-                <p>
-                    Photos, livret de messe & musiques
-                </p>
+                <div>
 
-            </div>
+                    <span>👀</span>
 
-        </a>
+                    <h2>
 
+                        Le First Look
 
-        <a href="vin-honneur/" class="card">
+                    </h2>
 
-            <div>
+                    <p>
 
-                <span>🥂</span>
+                        Le moment où nous nous sommes retrouvés
 
-                <h2>
-                    Le vin d'honneur
-                </h2>
+                    </p>
 
-                <p>
-                    Photos & playlist
-                </p>
+                </div>
 
-            </div>
+            </a>
 
-        </a>
 
+            <a href="mairie/" class="card">
 
-        <a href="soiree/" class="card">
+                <div>
 
-            <div>
+                    <span>🏛️</span>
 
-                <span>💃</span>
+                    <h2>
 
-                <h2>
-                    La soirée
-                </h2>
+                        Le premier « Oui »
 
-                <p>
-                    Repas, animations & fête
-                </p>
+                    </h2>
 
-            </div>
+                    <p>
 
-        </a>
+                        À la mairie
 
+                    </p>
 
-        <a href="videos/" class="card">
+                </div>
 
-            <div>
+            </a>
 
-                <span>🎬</span>
 
-                <h2>
-                    Les vidéos
-                </h2>
+            <a href="ceremonie/" class="card">
 
-                <p>
-                    Le film de notre mariage
-                </p>
+                <div>
 
-            </div>
+                    <span>⛪</span>
 
-        </a>
+                    <h2>
 
+                        Le grand « Oui »
 
-        <a href="mariage-en-images/" class="card featured">
+                    </h2>
 
-            <div>
+                    <p>
 
-                <span>📸</span>
+                        La cérémonie
 
-                <h2>
-                    Notre mariage en images
-                </h2>
+                    </p>
 
-                <p>
-                    Revivre toute la journée en photos
-                </p>
+                </div>
 
-            </div>
+            </a>
 
-        </a>
 
+            <a href="vin-honneur/" class="card">
 
-    </section>
+                <div>
 
-</main>
-```
+                    <span>🥂</span>
+
+                    <h2>
+
+                        À la vôtre !
+
+                    </h2>
+
+                    <p>
+
+                        Le vin d'honneur
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="soiree/" class="card">
+
+                <div>
+
+                    <span>💃</span>
+
+                    <h2>
+
+                        Et la fête commence !
+
+                    </h2>
+
+                    <p>
+
+                        Repas, animations & soirée
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="videos/" class="card">
+
+                <div>
+
+                    <span>🎬</span>
+
+                    <h2>
+
+                        On remet ça ?
+
+                    </h2>
+
+                    <p>
+
+                        Les vidéos de cette folle journée
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="mariage-en-images/" class="card featured">
+
+                <div>
+
+                    <span>📸</span>
+
+                    <h2>
+
+                        Notre mariage en images
+
+                    </h2>
+
+                    <p>
+
+                        Parce qu'une seule fois ne suffit pas ❤️
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </section>
+
+
+        <footer class="footer">
+
+            ❤️ Élodie & Alexandre ❤️
+
+        </footer>
+
+
+    </main>
 
 </body>
 
