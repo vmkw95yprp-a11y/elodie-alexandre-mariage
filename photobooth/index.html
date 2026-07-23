@@ -1,45 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <title>Photobooth</title>
+    <title>TEST PHOTOS</title>
 </head>
 
 <body>
 
-    <h1>Mes photos du photobooth</h1>
+    <h1>TEST - 6 PHOTOS</h1>
 
-    <div id="gallery"></div>
-
-    <script>
-
-        const photos = [
-            "20260523_184901_640.jpg",
-            "20260523_185252_043.jpg",
-            "20260523_185417_189.jpg",
-            "20260523_185728_781.jpg",
-            "20260523_190444_650.jpg",
-            "20260523_190619_012_1x.jpg"
-        ];
-
-        const gallery = document.getElementById("gallery");
-
-        photos.forEach(function(photo) {
-
-            const image = document.createElement("img");
-
-            image.src = "../images/photobooth/" + photo;
-
-            image.style.width = "250px";
-            image.style.margin = "10px";
-
-            gallery.appendChild(image);
-
-        });
-
-    </script>
+    <img src="../images/photobooth/20260523_184901_640.jpg" width="300">
+    <img src="../images/photobooth/20260523_185252_043.jpg" width="300">
+    <img src="../images/photobooth/20260523_185417_189.jpg" width="300">
+    <img src="../images/photobooth/20260523_185728_781.jpg" width="300">
+    <img src="../images/photobooth/20260523_190444_650.jpg" width="300">
+    <img src="../images/photobooth/20260523_190619_012_1x.jpg" width="300">
 
 </body>
-
 </html>
