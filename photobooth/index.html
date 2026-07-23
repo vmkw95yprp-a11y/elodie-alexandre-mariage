@@ -1,128 +1,633 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Photobooth</title>
 
     <style>
+
         body {
+
             font-family: Arial, sans-serif;
+
             background: #faf9f7;
+
             text-align: center;
+
             padding: 30px;
+
         }
+
 
         .gallery {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
+
             max-width: 1000px;
+
             margin: 40px auto;
+
         }
+
 
         .photo {
+
             cursor: pointer;
+
             transition: transform 0.2s;
+
+            aspect-ratio: 1 / 1;
+
+            overflow: hidden;
+
         }
+
 
         .photo:hover {
+
             transform: scale(1.05);
+
         }
+
 
         .photo img {
+
             width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
             display: block;
+
         }
+
 
         .viewer {
+
             display: none;
+
             position: fixed;
+
             inset: 0;
-            background: rgba(0,0,0,0.9);
+
+            background: rgba(0, 0, 0, 0.9);
+
             justify-content: center;
+
             align-items: center;
+
             z-index: 10;
+
+            overflow-y: auto;
+
+            padding: 30px;
+
         }
+
 
         .viewer.active {
+
             display: flex;
+
         }
 
-        .viewer img {
-            max-width: 90%;
-            max-height: 90%;
+
+        .viewer-content {
+
+            max-width: 1000px;
+
+            width: 100%;
+
         }
+
+
+        .main-photo {
+
+            max-width: 100%;
+
+            max-height: 70vh;
+
+            display: block;
+
+            margin: 0 auto 20px;
+
+        }
+
+
+        .associated-photos {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .associated-photos img {
+
+            width: 100%;
+
+            max-height: 300px;
+
+            object-fit: contain;
+
+            background: #111;
+
+        }
+
 
         .close {
+
             position: fixed;
+
             top: 20px;
+
             right: 30px;
+
             color: white;
+
             font-size: 40px;
+
             cursor: pointer;
+
+            z-index: 20;
+
         }
+
+
+        @media (max-width: 700px) {
+
+            .gallery {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
+
+            }
+
+
+            .associated-photos {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <h1>Le photobooth 📸</h1>
 
-    <div class="gallery">
+    <h1>
 
-        <div class="photo" onclick="ouvrir('20260523_184901_640.jpg')">
-            <img src="../images/photobooth/20260523_184901_640.jpg">
-        </div>
+        Le photobooth 📸
 
-        <div class="photo" onclick="ouvrir('20260523_185252_043.jpg')">
-            <img src="../images/photobooth/20260523_185252_043.jpg">
-        </div>
+    </h1>
 
-        <div class="photo" onclick="ouvrir('20260523_185417_189.jpg')">
-            <img src="../images/photobooth/20260523_185417_189.jpg">
-        </div>
 
-        <div class="photo" onclick="ouvrir('20260523_185728_781.jpg')">
-            <img src="../images/photobooth/20260523_185728_781.jpg">
-        </div>
+    <div
 
-        <div class="photo" onclick="ouvrir('20260523_190444_650.jpg')">
-            <img src="../images/photobooth/20260523_190444_650.jpg">
-        </div>
+        class="gallery"
 
-        <div class="photo" onclick="ouvrir('20260523_190619_012_1x.jpg')">
-            <img src="../images/photobooth/20260523_190619_012_1x.jpg">
-        </div>
+        id="gallery"
+
+    >
 
     </div>
 
-    <div class="viewer" id="viewer" onclick="fermer()">
 
-        <span class="close">&times;</span>
+    <div
 
-        <img id="grandePhoto">
+        class="viewer"
+
+        id="viewer"
+
+        onclick="fermer(event)"
+
+    >
+
+
+        <span
+
+            class="close"
+
+        >
+
+            &times;
+
+        </span>
+
+
+        <div
+
+            class="viewer-content"
+
+            onclick="event.stopPropagation()"
+
+        >
+
+
+            <img
+
+                id="mainPhoto"
+
+                class="main-photo"
+
+            >
+
+
+            <div
+
+                id="associatedPhotos"
+
+                class="associated-photos"
+
+            >
+
+            </div>
+
+
+        </div>
+
 
     </div>
+
 
     <script>
 
-        function ouvrir(photo) {
 
-            document.getElementById("grandePhoto").src =
-                "../images/photobooth/" + photo;
+        const groupes = [
 
-            document.getElementById("viewer").classList.add("active");
+
+            {
+
+                vignette:
+
+                    "IMG_7134_20260523_184837_3600.JPG",
+
+
+                principale:
+
+                    "20260523_184901_640.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7134_20260523_184837_3600.JPG",
+
+
+                    "IMG_7135_20260523_184846_3600.JPG"
+
+
+                ]
+
+            },
+
+
+            {
+
+                vignette:
+
+                    "IMG_7137_20260523_185230_3600.JPG",
+
+
+                principale:
+
+                    "20260523_185252_043.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7137_20260523_185230_3600.JPG",
+
+
+                    "IMG_7138_20260523_185238_3600.JPG"
+
+
+                ]
+
+            },
+
+
+            {
+
+                vignette:
+
+                    "IMG_7139_20260523_185407_3600.JPG",
+
+
+                principale:
+
+                    "20260523_185417_189.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7139_20260523_185407_3600.JPG"
+
+
+                ]
+
+            },
+
+
+            {
+
+                vignette:
+
+                    "IMG_7143_20260523_185723_3600.JPG",
+
+
+                principale:
+
+                    "20260523_185728_781.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7143_20260523_185723_3600.JPG"
+
+
+                ]
+
+            },
+
+
+            {
+
+                vignette:
+
+                    "IMG_7146_20260523_190434_3600.JPG",
+
+
+                principale:
+
+                    "20260523_190444_650.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7146_20260523_190434_3600.JPG"
+
+
+                ]
+
+            },
+
+
+            {
+
+                vignette:
+
+                    "IMG_7147_20260523_190544_3600.JPG",
+
+
+                principale:
+
+                    "20260523_190619_012_1x.jpg",
+
+
+                photos: [
+
+
+                    "IMG_7147_20260523_190544_3600.JPG",
+
+
+                    "IMG_7148_20260523_190552_3600.JPG",
+
+
+                    "IMG_7149_20260523_190601_3600.JPG"
+
+
+                ]
+
+            }
+
+
+        ];
+
+
+        const dossier =
+
+            "../images/photobooth/";
+
+
+        const gallery =
+
+            document.getElementById(
+
+                "gallery"
+
+            );
+
+
+        const viewer =
+
+            document.getElementById(
+
+                "viewer"
+
+            );
+
+
+        const mainPhoto =
+
+            document.getElementById(
+
+                "mainPhoto"
+
+            );
+
+
+        const associatedPhotos =
+
+            document.getElementById(
+
+                "associatedPhotos"
+
+            );
+
+
+        groupes.forEach(
+
+            function(groupe) {
+
+
+                const div =
+
+                    document.createElement(
+
+                        "div"
+
+                    );
+
+
+                div.className =
+
+                    "photo";
+
+
+                div.onclick =
+
+                    function() {
+
+
+                        mainPhoto.src =
+
+                            dossier +
+
+                            groupe.principale;
+
+
+                        associatedPhotos.innerHTML =
+
+                            "";
+
+
+                        groupe.photos.forEach(
+
+                            function(photo) {
+
+
+                                const img =
+
+                                    document.createElement(
+
+                                        "img"
+
+                                    );
+
+
+                                img.src =
+
+                                    dossier +
+
+                                    photo;
+
+
+                                associatedPhotos.appendChild(
+
+                                    img
+
+                                );
+
+                            }
+
+                        );
+
+
+                        viewer.classList.add(
+
+                            "active"
+
+                        );
+
+                    };
+
+
+                const img =
+
+                    document.createElement(
+
+                        "img"
+
+                    );
+
+
+                img.src =
+
+                    dossier +
+
+                    groupe.vignette;
+
+
+                div.appendChild(
+
+                    img
+
+                );
+
+
+                gallery.appendChild(
+
+                    div
+
+                );
+
+            }
+
+        );
+
+
+        function fermer(event) {
+
+
+            if (
+
+                event.target ===
+
+                viewer
+
+            ) {
+
+
+                viewer.classList.remove(
+
+                    "active"
+
+                );
+
+            }
 
         }
 
-        function fermer() {
 
-            document.getElementById("viewer").classList.remove("active");
+        document
 
-        }
+            .querySelector(
+
+                ".close"
+
+            )
+
+            .onclick =
+
+            function() {
+
+
+                viewer.classList.remove(
+
+                    "active"
+
+                );
+
+            };
+
 
     </script>
 
+
 </body>
+
 </html>
